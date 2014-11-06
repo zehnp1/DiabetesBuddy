@@ -4,5 +4,11 @@
     <string name="app_name">DiabetesBuddy</string>
     <string name="hello_world">Hello new world!</string>
     <string name="action_settings">Settings</string>
+    <string name="username"></string>
+    <string name="welcomeText">"Ich bin SuperMonkey, dein DiabetesBuddy und werde dich ab jetzt jeden Tag begleiten.
+
+Ich kann dir Spiele erklären und dir beim Eintragen deiner Blutzuckerwerte helfen.
+Viel Spass und falls du Hilfe brauchst, klick einfach oben rechts auf das kleine i."</string>
+
 
 </resources>
