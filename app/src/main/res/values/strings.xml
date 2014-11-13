@@ -30,6 +30,9 @@ Broteinheiten in bestimmten Nahrungsmitteln stecken!</string>
 
     <string name="logoutButton">Logout</string>
 
+    //shop.xml
+    <string name="shopTitel">Banana Shop</string>
+    <string name="shopDuHast">Du Hast:</string>
 
 
 </resources>
