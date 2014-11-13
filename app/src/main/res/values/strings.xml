@@ -10,5 +10,11 @@
 Ich kann dir Spiele erklären und dir beim Eintragen deiner Blutzuckerwerte helfen.
 Viel Spass und falls du Hilfe brauchst, klick einfach oben rechts auf das kleine i."</string>
 
+    <string name="spiel1">BE Wert schätzen</string>
+    <string name="spiel2">Diabetes Quiz</string>
+    <string name="spielLernenTitel">Spielen und Lernen</string>
+    <string name="spielLernenInhalt">Im Spiel Diabetes Quiz lernst du allgemeine Informationen rund um Diabetes und beim BE Wert schätzen findest du heraus wieviele
+Broteinheiten in bestimmten Nahrungsmitteln stecken!</string>
+
 
 </resources>

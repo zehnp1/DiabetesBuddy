@@ -1,7 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout">
 
-</LinearLayout>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSpielBE"
+        android:text="@string/spiel1"
+        android:layout_marginTop="200dp"
+        android:layout_below="@+id/inhaltSpiele"
+        android:layout_centerHorizontal="true"
+        style="@style/AppTheme"
+        android:clickable="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSpieleQuiz"
+        android:text="@string/spiel2"
+        android:layout_below="@+id/buttonSpielBE"
+        android:layout_alignLeft="@+id/buttonSpielBE"
+        android:layout_alignStart="@+id/buttonSpielBE"
+        android:layout_alignRight="@+id/buttonSpielBE"
+        android:layout_alignEnd="@+id/buttonSpielBE"
+        style="@style/AppTheme"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/spielLernenTitel"
+        android:id="@+id/textView"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/inhaltSpiele"
+        android:text="@string/spielLernenInhalt"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        style="@style/AppTheme" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/buddy_smile"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
