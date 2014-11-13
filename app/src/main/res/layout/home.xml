@@ -21,7 +21,8 @@
         android:id="@+id/homeButton1"
         android:focusable="false"
         android:layout_below="@+id/imageView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/logoutButton"
+        android:layout_toStartOf="@+id/logoutButton" />
 
     <Button
         android:layout_width="280dp"
