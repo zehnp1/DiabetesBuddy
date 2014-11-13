@@ -3,7 +3,8 @@
 <RelativeLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/homeScreen">
 
     <ImageView
         android:layout_width="150dp"
@@ -65,5 +66,51 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/cookiePicture"
+        android:layout_toEndOf="@+id/homeButton1"
+        android:src="@drawable/cookie"
+        android:layout_toRightOf="@+id/homeButton1"
+        android:layout_above="@+id/homeButton2"
+        android:layout_below="@+id/imageView2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/brettspielPicture"
+        android:layout_toEndOf="@+id/homeButton2"
+        android:layout_toRightOf="@+id/homeButton2"
+        android:src="@drawable/brettspiel"
+        android:layout_alignRight="@+id/cookiePicture"
+        android:layout_alignEnd="@+id/cookiePicture"
+        android:layout_above="@+id/homeButton3"
+        android:layout_alignTop="@+id/homeButton2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/einstellungenPicture"
+        android:layout_above="@+id/homeButton4"
+        android:layout_toRightOf="@+id/homeButton3"
+        android:layout_toEndOf="@+id/homeButton3"
+        android:layout_alignRight="@+id/brettspielPicture"
+        android:layout_alignEnd="@+id/brettspielPicture"
+        android:layout_alignTop="@+id/homeButton3"
+        android:src="@drawable/info" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopPicture"
+        android:layout_alignBottom="@+id/homeButton4"
+        android:layout_alignRight="@+id/einstellungenPicture"
+        android:layout_alignEnd="@+id/einstellungenPicture"
+        android:layout_toRightOf="@+id/homeButton4"
+        android:layout_toEndOf="@+id/homeButton4"
+        android:src="@drawable/shop"
+        android:layout_alignTop="@+id/homeButton4" />
 
 </RelativeLayout>
