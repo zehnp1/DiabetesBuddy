@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/buddy_haare"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="@string/homeButton1"
+        android:id="@+id/homeButton1"
+        android:focusable="false"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="@string/homeButton2"
+        android:id="@+id/homeButton2"
+        android:layout_marginTop="33dp"
+        android:focusable="false"
+        android:layout_below="@+id/homeButton1"
+        android:layout_alignLeft="@+id/homeButton1"
+        android:layout_alignStart="@+id/homeButton1" />
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="@string/homeButton3"
+        android:id="@+id/homeButton3"
+        android:layout_marginTop="32dp"
+        android:focusable="false"
+        android:layout_below="@+id/homeButton2"
+        android:layout_alignLeft="@+id/homeButton2"
+        android:layout_alignStart="@+id/homeButton2" />
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="@string/homeButton4"
+        android:id="@+id/homeButton4"
+        android:focusable="false"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/homeButton3"
+        android:layout_alignLeft="@+id/homeButton3"
+        android:layout_alignStart="@+id/homeButton3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logoutButton"
+        android:id="@+id/logoutButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

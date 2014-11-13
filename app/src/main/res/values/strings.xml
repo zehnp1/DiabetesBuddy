@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    //login.xml
     <string name="app_name">DiabetesBuddy</string>
     <string name="hello_world">Hello new world!</string>
     <string name="action_settings">Settings</string>
+
+
+    // welcome.xml
     <string name="username"></string>
     <string name="welcomeText">"Ich bin SuperMonkey, dein DiabetesBuddy und werde dich ab jetzt jeden Tag begleiten.
 
 Ich kann dir Spiele erklären und dir beim Eintragen deiner Blutzuckerwerte helfen.
-Viel Spass und falls du Hilfe brauchst, klick einfach oben rechts auf das kleine i."</string>
+Viel Spass!"</string>
 
+    //home.xml
+    <string name="homeButton1">Blutzucker und Essen eintragen</string>
+    <string name="homeButton2">Spielen und Lernen</string>
+    <string name="homeButton3">Einstellungen</string>
+    <string name="homeButton4">Shop</string>
+
+
+    //be_schaetzen.xml
     <string name="spiel1">BE Wert schätzen</string>
     <string name="spiel2">Diabetes Quiz</string>
     <string name="spielLernenTitel">Spielen und Lernen</string>
     <string name="spielLernenInhalt">Im Spiel Diabetes Quiz lernst du allgemeine Informationen rund um Diabetes und beim BE Wert schätzen findest du heraus wieviele
 Broteinheiten in bestimmten Nahrungsmitteln stecken!</string>
+
+    <string name="logoutButton">Logout</string>
 
 
 </resources>
