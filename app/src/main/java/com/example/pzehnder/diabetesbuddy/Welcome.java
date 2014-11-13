@@ -1,31 +1,19 @@
 package com.example.pzehnder.diabetesbuddy;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.*;
-import android.view.View;
 
-
-
-public class Login extends Activity {
+/**
+ * Created by michaelheeb on 13.11.14.
+ */
+public class Welcome extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        Button buttonLogin = (Button) findViewById(R.id.buttonLogin);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent welcomeView = new Intent(Login.this, Welcome.class);
-                startActivity(welcomeView);
-            }
-
-        });
+        setContentView(R.layout.welcome);
     }
 
 
@@ -47,9 +35,4 @@ public class Login extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
-
-    }
+}
