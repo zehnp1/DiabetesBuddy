@@ -10,7 +10,6 @@
     // welcome.xml
     <string name="username"></string>
     <string name="welcomeText">"Ich bin SuperMonkey, dein DiabetesBuddy und werde dich ab jetzt jeden Tag begleiten.
-
 Ich kann dir Spiele erklären und dir beim Eintragen deiner Blutzuckerwerte helfen.
 Viel Spass!"</string>
 

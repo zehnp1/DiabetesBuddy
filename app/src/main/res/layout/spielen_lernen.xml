@@ -74,7 +74,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:typeface="serif"
         android:textColor="#FFCB3B"
         android:textSize="20dp"/>
 
@@ -88,7 +87,6 @@
         android:layout_below="@+id/textView"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        style="@style/AppTheme"
         android:textColor="#FFCB3B"
         android:textSize="16dp"/>
 

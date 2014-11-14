@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import static com.example.pzehnder.diabetesbuddy.R.*;
+
 /**
  * Created by michaelheeb on 13.11.14.
  */
@@ -13,7 +15,7 @@ public class Welcome extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.spielen_lernen);
+        setContentView(layout.spielen_lernen);
     }
 
 
