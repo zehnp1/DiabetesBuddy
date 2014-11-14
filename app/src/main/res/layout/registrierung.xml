@@ -30,8 +30,117 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:ems="10"
+        android:id="@+id/nameFeld"
+        android:textStyle="bold"
+        android:autoText="false"
+        android:layout_below="@+id/imageView"
+        android:layout_alignLeft="@+id/vornameFeld"
+        android:layout_alignStart="@+id/vornameFeld"
+        />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Vorname"
+        android:ems="10"
+        android:id="@+id/vornameFeld"
+        android:textStyle="bold"
+        android:autoText="true"
+        android:layout_below="@+id/nameFeld"
+        android:layout_centerHorizontal="true"
+        />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textWebEmailAddress"
+        android:hint="eMail"
+        android:ems="10"
+        android:id="@+id/eMailFeld"
+        android:textStyle="bold"
+        android:autoText="true"
+        android:layout_below="@+id/vornameFeld"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Benutzername"
+        android:ems="10"
+        android:id="@+id/usernameFeld"
+        android:textStyle="bold"
+        android:autoText="true"
+        android:layout_below="@+id/eMailFeld"
+        android:layout_alignLeft="@+id/Passwort"
+        android:layout_alignStart="@+id/Passwort"
+         />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/Passwort"
+        android:hint="Passwort"
+        android:textStyle="bold"
+        android:layout_below="@+id/usernameFeld"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/password"
+        android:hint="Passwort"
+        android:textStyle="bold"
+        android:layout_below="@+id/Passwort"
+        android:layout_centerHorizontal="true"
+        />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M"
+        android:id="@+id/maleCheckBox"
+        android:checked="false"
+        android:layout_below="@+id/password"
+        android:layout_alignRight="@+id/password"
+        android:layout_alignEnd="@+id/password"
+        android:textStyle="bold" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="W"
+        android:id="@+id/femaleCheckBox"
+        android:checked="false"
+        android:layout_toStartOf="@+id/maleCheckBox"
+        android:layout_below="@+id/password"
+        android:layout_toLeftOf="@+id/maleCheckBox"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Geschlecht:"
+        android:id="@+id/geschlecht"
+        android:textStyle="bold"
+        android:layout_below="@+id/password"
+        android:layout_alignLeft="@+id/RegistrierungTitel"
+        android:layout_alignStart="@+id/RegistrierungTitel" />
 
 
 </RelativeLayout>

@@ -38,7 +38,7 @@
         android:inputType="textPersonName"
         android:hint="Benutzername"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/nameFeld"
         android:layout_marginTop="80dp"
         android:layout_below="@+id/LoginTitel"
         android:layout_centerHorizontal="true"
@@ -50,10 +50,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/Password"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
+        android:id="@+id/Passwort"
+        android:layout_below="@+id/nameFeld"
+        android:layout_alignLeft="@+id/nameFeld"
+        android:layout_alignStart="@+id/nameFeld"
         android:hint="Passwort"
         android:textStyle="bold"/>
 
@@ -68,8 +68,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:layout_below="@+id/Password"
-        android:layout_alignRight="@+id/Password" />
+        android:layout_below="@+id/Passwort"
+        android:layout_alignRight="@+id/Passwort" />
 
     <Button
         android:layout_width="205dp"
