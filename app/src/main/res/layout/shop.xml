@@ -26,7 +26,6 @@
         android:layout_marginRight="10dp"
         android:baselineAligned="false"
         android:background="@drawable/border"
-        android:id="@+id/"
         android:weightSum="1">
 
         <TextView
@@ -42,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="?????"
+            android:text="bananen"
             android:id="@+id/textView5"
             android:gravity="center_vertical"
             android:layout_weight="0.61" />
