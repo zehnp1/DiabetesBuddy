@@ -42,7 +42,8 @@
         android:layout_marginTop="80dp"
         android:layout_below="@+id/LoginTitel"
         android:layout_centerHorizontal="true"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:autoText="false" />
 
     <EditText
         android:layout_width="wrap_content"
