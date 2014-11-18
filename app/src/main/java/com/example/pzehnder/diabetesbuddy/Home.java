@@ -29,14 +29,7 @@ public class Home extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(layout.home);
 
-        Button buttonLogin = (Button) findViewById(R.id.buttonLogin);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent homeView = new Intent(Home.this, Home.class);
-                startActivity(homeView);
-            }
 
-        });
     }
 
 

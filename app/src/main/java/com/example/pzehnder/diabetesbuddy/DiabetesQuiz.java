@@ -12,12 +12,12 @@ import android.widget.Button;
 
 
 
-public class Spiele extends Activity {
+public class DiabetesQuiz extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.spielen_lernen);
+        setContentView(R.layout.diabetes_quiz);
 
 
     }
@@ -47,4 +47,3 @@ public class Spiele extends Activity {
 
 
 }
-
