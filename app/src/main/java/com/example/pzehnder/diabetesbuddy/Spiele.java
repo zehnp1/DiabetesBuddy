@@ -19,6 +19,25 @@ public class Spiele extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spielen_lernen);
 
+        Button buttonBE = (Button) findViewById(R.id.buttonSpielBE);
+        buttonBE.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent beView = new Intent(Spiele.this, BESchaetzen.class);
+                startActivity(beView);
+            }
+
+        });
+
+
+        Button buttonQuiz = (Button) findViewById(R.id.buttonSpieleQuiz);
+        buttonQuiz.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent quizView = new Intent(Spiele.this, DiabetesQuiz.class);
+                startActivity(quizView);
+            }
+
+        });
+
 
     }
 

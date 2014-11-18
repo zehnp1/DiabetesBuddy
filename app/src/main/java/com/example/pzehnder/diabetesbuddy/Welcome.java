@@ -20,8 +20,8 @@ public class Welcome extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(layout.welcome);
 
-        Button buttonLogin = (Button) findViewById(id.welcomeButtonWeiter);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        Button buttonWeiter = (Button) findViewById(id.welcomeButtonWeiter);
+        buttonWeiter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent homeView = new Intent(Welcome.this, Home.class);
                 startActivity(homeView);

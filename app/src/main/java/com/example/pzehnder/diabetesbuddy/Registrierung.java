@@ -1,40 +1,25 @@
 package com.example.pzehnder.diabetesbuddy;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.*;
 import android.view.View;
+import android.widget.Button;
 
 
 
-public class Login extends Activity {
+
+
+public class Registrierung extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.registrierung);
 
-        Button buttonLogin = (Button) findViewById(R.id.buttonLogin);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent welcomeView = new Intent(Login.this, Welcome.class);
-                startActivity(welcomeView);
-            }
 
-        });
-
-        Button buttonReg = (Button) findViewById(R.id.Registrieren);
-        buttonReg.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent regView = new Intent(Login.this, Registrierung.class);
-                startActivity(regView);
-            }
-
-        });
     }
 
 
@@ -61,4 +46,6 @@ public class Login extends Activity {
 
 
 
-    }
+}
+
+

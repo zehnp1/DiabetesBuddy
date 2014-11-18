@@ -30,6 +30,41 @@ public class Home extends Activity {
         setContentView(layout.home);
 
 
+        Button buttonBlutzucker = (Button) findViewById(id.homeButton1);
+        buttonBlutzucker.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent blutzuckerView = new Intent(Home.this, BlutzuckerEssen.class);
+                startActivity(blutzuckerView);
+            }
+
+        });
+
+        Button buttonSpiele = (Button) findViewById(id.homeButton2);
+        buttonSpiele.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent spieleView = new Intent(Home.this, Spiele.class);
+                startActivity(spieleView);
+            }
+
+        });
+
+        Button buttonShop = (Button) findViewById(id.homeButton4);
+        buttonShop.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent shopView = new Intent(Home.this, Shop.class);
+                startActivity(shopView);
+            }
+
+        });
+
+        Button buttonLogout = (Button) findViewById(id.logoutButton);
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent loginView = new Intent(Home.this, Login.class);
+                startActivity(loginView);
+            }
+
+        });
     }
 
 
