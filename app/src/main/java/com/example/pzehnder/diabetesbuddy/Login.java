@@ -3,6 +3,7 @@ package com.example.pzehnder.diabetesbuddy;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,11 +22,20 @@ public class Login extends Activity {
         Button buttonLogin = (Button) findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent welcomeView = new Intent(Login.this, Welcome.class);
-                startActivity(welcomeView);
-            }
 
-        });
+                if (isFirstTime()) {
+                    Intent welcomeView = new Intent(Login.this, Welcome.class);
+                    startActivity(welcomeView);
+                }
+
+                else{
+                    Intent homeView = new Intent(Login.this, Home.class);
+                    startActivity(homeView);
+                }
+                }
+            });
+
+        
 
         Button buttonReg = (Button) findViewById(R.id.Registrieren);
         buttonReg.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +67,17 @@ public class Login extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    private boolean isFirstTime()
+    {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        boolean ranBefore = preferences.getBoolean("RanBefore", false);
+        if (!ranBefore) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("RanBefore", true);
+            editor.commit();
+        }
+        return !ranBefore;
+    }
 
 
 
