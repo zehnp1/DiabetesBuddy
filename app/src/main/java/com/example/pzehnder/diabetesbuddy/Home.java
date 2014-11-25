@@ -9,14 +9,6 @@ import android.view.View;
 import android.widget.Button;
 
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-
 import static com.example.pzehnder.diabetesbuddy.R.*;
 
 /**
@@ -48,7 +40,7 @@ public class Home extends Activity {
 
         });
 
-        Button buttonShop = (Button) findViewById(id.homeButton4);
+        Button buttonShop = (Button) findViewById(id.homeButton3);
         buttonShop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent shopView = new Intent(Home.this, Shop.class);

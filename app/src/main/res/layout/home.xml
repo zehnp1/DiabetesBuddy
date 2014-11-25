@@ -30,7 +30,8 @@
         android:layout_above="@+id/homeButton2"
         android:layout_alignLeft="@+id/homeButton2"
         android:layout_alignStart="@+id/homeButton2"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="15dp" />
 
     <Button
         android:layout_width="280dp"
@@ -43,16 +44,18 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:layout_above="@+id/homeButton4"
-        android:layout_alignLeft="@+id/homeButton4"
-        android:layout_alignStart="@+id/homeButton4"
-        android:layout_marginTop="15dp" />
+
+        android:layout_above="@+id/homeButton3"
+        android:layout_alignLeft="@+id/homeButton3"
+        android:layout_alignStart="@+id/homeButton3"
+        android:layout_marginBottom="15dp" />
+
 
     <Button
         android:layout_width="280dp"
         android:layout_height="60dp"
         android:text="@string/homeButton4"
-        android:id="@+id/homeButton4"
+        android:id="@+id/homeButton3"
         android:focusable="false"
         android:background="@drawable/button"
         android:shadowColor="#000000"
@@ -60,10 +63,10 @@
         android:shadowDy="0"
         android:shadowRadius="5"
 
-        android:layout_marginBottom="83dp"
+        android:layout_marginBottom="96dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        android:layout_centerHorizontal="true" />
+
 
     <Button
         android:layout_width="120dp"
@@ -81,6 +84,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp" />
+
 
 
 </RelativeLayout>

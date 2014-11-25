@@ -61,7 +61,7 @@
         android:layout_width="205dp"
         android:layout_height="46dp"
         android:text="Login"
-        android:id="@+id/buttonLogin"
+        android:id="@+id/homeButton1"
         android:layout_marginTop="32dp"
         android:background="@drawable/button"
         android:shadowColor="#000000"
@@ -81,8 +81,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:layout_below="@+id/buttonLogin"
-        android:layout_alignLeft="@+id/buttonLogin"
+        android:layout_below="@+id/homeButton1"
+        android:layout_alignLeft="@+id/homeButton1"
         android:layout_marginTop="5dp" />
 
 </RelativeLayout>

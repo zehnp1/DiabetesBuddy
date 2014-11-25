@@ -1,11 +1,9 @@
 package com.example.pzehnder.diabetesbuddy;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.*;
 import android.view.View;
@@ -19,7 +17,7 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button buttonLogin = (Button) findViewById(R.id.buttonLogin);
+        Button buttonLogin = (Button) findViewById(R.id.homeButton1);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
