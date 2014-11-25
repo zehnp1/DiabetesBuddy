@@ -22,20 +22,21 @@
         android:text="@string/homeButton1"
         android:id="@+id/homeButton1"
         android:focusable="false"
+        android:layout_toStartOf="@+id/logoutButton"
         android:layout_below="@+id/imageView2"
-        android:layout_toLeftOf="@+id/logoutButton"
-        android:layout_toStartOf="@+id/logoutButton" />
+        android:layout_alignRight="@+id/homeButton2"
+        android:layout_alignEnd="@+id/homeButton2"
+        android:layout_alignLeft="@+id/homeButton2"
+        android:layout_alignStart="@+id/homeButton2" />
 
     <Button
         android:layout_width="280dp"
         android:layout_height="60dp"
         android:text="@string/homeButton2"
         android:id="@+id/homeButton2"
-        android:layout_marginTop="33dp"
         android:focusable="false"
-        android:layout_below="@+id/homeButton1"
-        android:layout_alignLeft="@+id/homeButton1"
-        android:layout_alignStart="@+id/homeButton1" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="280dp"
@@ -68,50 +69,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/cookiePicture"
-        android:layout_toEndOf="@+id/homeButton1"
-        android:src="@drawable/cookie"
-        android:layout_toRightOf="@+id/homeButton1"
-        android:layout_above="@+id/homeButton2"
-        android:layout_below="@+id/imageView2" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/brettspielPicture"
-        android:layout_toEndOf="@+id/homeButton2"
-        android:layout_toRightOf="@+id/homeButton2"
-        android:src="@drawable/brettspiel"
-        android:layout_alignRight="@+id/cookiePicture"
-        android:layout_alignEnd="@+id/cookiePicture"
-        android:layout_above="@+id/homeButton3"
-        android:layout_alignTop="@+id/homeButton2" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/einstellungenPicture"
-        android:layout_above="@+id/homeButton4"
-        android:layout_toRightOf="@+id/homeButton3"
-        android:layout_toEndOf="@+id/homeButton3"
-        android:layout_alignRight="@+id/brettspielPicture"
-        android:layout_alignEnd="@+id/brettspielPicture"
-        android:layout_alignTop="@+id/homeButton3"
-        android:src="@drawable/info" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/shopPicture"
-        android:layout_alignBottom="@+id/homeButton4"
-        android:layout_alignRight="@+id/einstellungenPicture"
-        android:layout_alignEnd="@+id/einstellungenPicture"
-        android:layout_toRightOf="@+id/homeButton4"
-        android:layout_toEndOf="@+id/homeButton4"
-        android:src="@drawable/shop"
-        android:layout_alignTop="@+id/homeButton4" />
+ 
 
 </RelativeLayout>
