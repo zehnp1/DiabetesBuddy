@@ -16,18 +16,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="280dp"
-        android:layout_height="60dp"
-        android:text="@string/homeButton1"
-        android:id="@+id/homeButton1"
-        android:focusable="false"
-        android:layout_toStartOf="@+id/logoutButton"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignRight="@+id/homeButton2"
-        android:layout_alignEnd="@+id/homeButton2"
-        android:layout_alignLeft="@+id/homeButton2"
-        android:layout_alignStart="@+id/homeButton2" />
+
 
     <Button
         android:layout_width="280dp"
@@ -35,19 +24,19 @@
         android:text="@string/homeButton2"
         android:id="@+id/homeButton2"
         android:focusable="false"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/button"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
 
-    <Button
-        android:layout_width="280dp"
-        android:layout_height="60dp"
-        android:text="@string/homeButton3"
-        android:id="@+id/homeButton3"
-        android:layout_marginTop="32dp"
-        android:focusable="false"
-        android:layout_below="@+id/homeButton2"
-        android:layout_alignLeft="@+id/homeButton2"
-        android:layout_alignStart="@+id/homeButton2" />
+
+        android:layout_below="@+id/buttonLogin"
+        android:layout_alignLeft="@+id/homeButton4"
+        android:layout_alignStart="@+id/homeButton4"
+        android:layout_marginTop="70dp" />
+
+
 
     <Button
         android:layout_width="280dp"
@@ -55,22 +44,44 @@
         android:text="@string/homeButton4"
         android:id="@+id/homeButton4"
         android:focusable="false"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/homeButton3"
-        android:layout_alignLeft="@+id/homeButton3"
-        android:layout_alignStart="@+id/homeButton3" />
+        android:background="@drawable/button"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_marginTop="77dp"
+        android:layout_below="@+id/homeButton2"
+        android:layout_alignLeft="@+id/buttonLogin"
+        android:layout_alignStart="@+id/buttonLogin" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="33dp"
         android:text="@string/logoutButton"
         android:id="@+id/logoutButton"
+
+        android:background="@drawable/button"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
 
 
- 
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="Blutzucker und Essen"
+        android:id="@+id/buttonLogin"
+        android:background="@drawable/button"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
