@@ -22,8 +22,19 @@
         <activity android:name=".Shop"/>
         <activity android:name=".Spiele"/>
         <activity android:name=".DiabetesQuiz"/>
-        <activity android:name=".BlutzuckerEssen"/>
+
         <activity android:name=".BESchaetzen"/>
+
+            <activity
+                android:label="@string/app_name"
+                android:name=".BlutzuckerEssen"
+                android:theme="@android:style/Theme.Holo.Light" >
+                <intent-filter >
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
+
     </application>
 
 </manifest>

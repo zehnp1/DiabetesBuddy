@@ -1,49 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relativeLayout"
-    android:background="@drawable/dschungel">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/dschungel"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TabHost
-        android:layout_width="fill_parent"
+    <TabHost android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/tabHost"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" >
-
-        <LinearLayout
+        >
+        <TabWidget
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@android:id/tabs"
+            />
+        <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:id="@android:id/tabcontent"
+            >
 
-            <TabWidget
-                android:id="@android:id/tabs"
+            <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="fill_parent"
+                android:id="@+id/tab2"
+                android:orientation="vertical"
+                android:paddingTop="60px"
+                >
 
-            <FrameLayout
-                android:id="@android:id/tabcontent"
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"
+                    android:id="@+id/button3"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="133dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent" >
+                android:layout_height="fill_parent"
+                android:id="@+id/tab1"
+                android:orientation="vertical"
+                android:paddingTop="60px"
+                >
 
-                <RelativeLayout
-                    android:id="@+id/tab1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button2"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="152dp" />
 
-                </RelativeLayout>
+            </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/tab2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
 
-                </RelativeLayout>
+        </FrameLayout>
 
-            </FrameLayout>
-        </LinearLayout>
     </TabHost>
+
 </RelativeLayout>

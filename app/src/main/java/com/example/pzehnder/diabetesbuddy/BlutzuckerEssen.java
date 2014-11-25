@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.TabHost.TabSpec;
+import android.widget.TabHost;
 
 
 
@@ -18,6 +18,22 @@ public class BlutzuckerEssen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blutzucker_essen);
+
+
+        // Get TabHost Refference
+        TabHost tabHost=(TabHost)findViewById(R.id.tabHost);
+        tabHost.setup();
+
+        TabSpec spec1=tabHost.newTabSpec("Tab 1");
+        spec1.setContent(R.id.tab1);
+        spec1.setIndicator("", getResources().getDrawable(R.drawable.banana));
+
+        TabSpec spec2=tabHost.newTabSpec("Tab 2");
+        spec2.setIndicator("Essen");
+        spec2.setContent(R.id.tab2);
+
+        tabHost.addTab(spec1);
+        tabHost.addTab(spec2);
 
 
     }
