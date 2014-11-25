@@ -24,6 +24,7 @@
         <activity android:name=".DiabetesQuiz"/>
 
         <activity android:name=".BESchaetzen"/>
+        <activity android:name=".Registrierung"/>
 
             <activity
                 android:label="@string/app_name"
