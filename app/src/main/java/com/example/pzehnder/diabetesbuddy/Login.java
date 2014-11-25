@@ -35,7 +35,7 @@ public class Login extends Activity {
                 }
             });
 
-        
+
 
         Button buttonReg = (Button) findViewById(R.id.Registrieren);
         buttonReg.setOnClickListener(new View.OnClickListener() {
