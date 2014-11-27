@@ -77,9 +77,8 @@
         android:text="@string/quizzFrage"
         android:id="@+id/textView2"
         android:elegantTextHeight="false"
-        android:layout_marginBottom="53dp"
         android:layout_above="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="79dp" />
 
 </RelativeLayout>
