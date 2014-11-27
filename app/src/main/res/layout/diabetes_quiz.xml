@@ -76,7 +76,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/quizzFrage"
         android:id="@+id/textView2"
-        android:elegantTextHeight="false"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="79dp" />
