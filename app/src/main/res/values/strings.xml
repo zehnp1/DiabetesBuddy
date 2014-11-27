@@ -41,13 +41,25 @@ Broteinheiten in bestimmten Nahrungsmitteln stecken!</string>
     <string name="preisSkate">5</string>
     <string name="preisZufall">10</string>
 
-    //be_schätzen.xml
+    
     <string name="beTitel">BE Wert schätzen</string>
 
     //quiz.xm
     <string name="quizzFrage">Welches Organ produziert Insulin?</string>
 
 
+
+
+    <string-array name="essen1_arrays">
+        <item>Getränk</item>
+        <item>Obst und Gemüse</item>
+    </string-array>
+
+    <string-array name="tageszeit_arrays">
+        <item>Morgen</item>
+        <item>Mittag</item>
+        <item>Abend</item>
+    </string-array>
 
 
 </resources>

@@ -24,10 +24,87 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:id="@+id/tab1"
+                android:orientation="vertical"
+                android:paddingTop="60px"
+                >
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="170dp"
+                    android:id="@+id/imageView2"
+                    android:src="@drawable/holztafellang1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="0dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp" />
+
+                <TextView
+                    android:id="@+id/essenDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="blabla"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="54dp"
+                    android:textColor="#FFCB3B"
+                    android:textSize="20dp"/>
+
+                <Button
+                    android:id="@+id/buttonPromptessen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nahrungsmittel hinzufügen"
+                    android:textSize="16dp"
+                    android:background="@drawable/button"
+                    android:shadowColor="#000000"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+
+
+                    android:layout_below="@+id/essenResult"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp" />
+
+                <DatePicker
+                    android:id="@+id/essenResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:calendarViewShown="false"
+
+
+                    android:layout_below="@+id/imageView2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="11dp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:id="@+id/tab2"
                 android:orientation="vertical"
                 android:paddingTop="60px"
                 >
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="170dp"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/holztafellang1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="0dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp" />
 
                 <TextView
                     android:id="@+id/bzDate"
@@ -35,42 +112,126 @@
                     android:layout_height="wrap_content"
                     android:text="blabla"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="54dp"
+                    android:textColor="#FFCB3B"
+                    android:textSize="20dp"/>
+
+
+
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="100dp"
+                    android:id="@+id/tableLayout"
+                    android:layout_below="@+id/bzDate"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    >
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/morgen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Morgen:"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="120dp"
+                            android:textColor="#FFCB3B"
+                            android:textSize="20dp"/>
+
+                        <TextView
+                            android:id="@+id/wertMorgen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="---"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#FFCB3B"
+                            android:textSize="20dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/mittag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mittag:"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="120dp"
+                            android:textColor="#FFCB3B"
+                            android:textSize="20dp"/>
+
+                        <TextView
+                            android:id="@+id/wertMittag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="---"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#FFCB3B"
+                            android:textSize="20dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/abend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Abend:"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="120dp"
+                            android:textColor="#FFCB3B"
+                            android:textSize="20dp"/>
+
+                        <TextView
+                            android:id="@+id/wertAbend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="---"
+                            android:gravity="right"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFCB3B"
+                            android:textSize="20dp"/>
+                    </TableRow>
+
+                    </TableLayout>
 
                 <DatePicker
                     android:id="@+id/dpResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:calendarViewShown="false"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="50dp" />
-
-                <Spinner
-                    android:id="@+id/spinner1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/tab1"
-                android:orientation="vertical"
-                android:paddingTop="60px"
-                >
+                    android:layout_below="@+id/tableLayout"
+                    android:layout_centerHorizontal="true" />
 
                 <Button
+                    android:id="@+id/buttonPrompt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Button"
-                    android:id="@+id/button2"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="152dp" />
+                    android:text="Wert hinzufügen"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button"
+                    android:shadowColor="#000000"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:layout_below="@+id/dpResult"
+                    android:layout_centerHorizontal="true" />
+
+
+
 
             </RelativeLayout>
 
