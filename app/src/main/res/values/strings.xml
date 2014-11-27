@@ -44,6 +44,9 @@ Broteinheiten in bestimmten Nahrungsmitteln stecken!</string>
     //be_schätzen.xml
     <string name="beTitel">BE Wert schätzen</string>
 
+    //quiz.xm
+    <string name="quizzFrage">Welches Organ produziert Insulin?</string>
+
 
 
 
