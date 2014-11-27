@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 
 
 
@@ -60,7 +61,22 @@ public class Registrierung extends Activity {
     }
 
 
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
 
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.maleCheckBox:
+                if (checked)
+                    // Pirates are the best
+                    break;
+            case R.id.femaleCheckBox:
+                if (checked)
+                    // Ninjas rule
+                    break;
+        }
+    }
 
 
 }

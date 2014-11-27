@@ -187,7 +187,7 @@
         <RadioButton
             android:layout_width="59dp"
             android:layout_height="53dp"
-            android:text="M"
+            android:text="@string/maleCheckBox"
             android:id="@+id/maleCheckBox"
             android:checked="false"
             android:textStyle="bold"
@@ -200,7 +200,7 @@
         <RadioButton
             android:layout_width="59dp"
             android:layout_height="53dp"
-            android:text="W"
+            android:text="@string/femaleCheckBox"
             android:id="@+id/femaleCheckBox"
             android:checked="false"
             android:textStyle="bold"
