@@ -34,4 +34,16 @@ Broteinheiten in bestimmten Nahrungsmitteln stecken!</string>
     <string name="shopDuHast">Du Hast:</string>
 
 
+    <string-array name="essen1_arrays">
+        <item>Getränk</item>
+        <item>Obst und Gemüse</item>
+    </string-array>
+
+    <string-array name="tageszeit_arrays">
+        <item>Morgen</item>
+        <item>Mittag</item>
+        <item>Abend</item>
+    </string-array>
+
+
 </resources>
