@@ -7,6 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+
 
 
 
@@ -20,8 +25,21 @@ public class Registrierung extends Activity {
         setContentView(R.layout.registrierung);
 
 
-    }
+        Spinner dropdown = (Spinner)findViewById(R.id.Sprache);
+        String[] items = new String[]{"Deutsch", "Französisch", "Italienisch"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+        dropdown.setAdapter(adapter);
 
+        Button buttonRegAbschluss = (Button) findViewById(R.id.RegistrierungsButton);
+        buttonRegAbschluss.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent homeView = new Intent(Registrierung.this, Home.class);
+                startActivity(homeView);
+            }
+
+        });
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,7 +61,21 @@ public class Registrierung extends Activity {
     }
 
 
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
 
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.maleCheckBox:
+                if (checked)
+                    // Person is male
+                    break;
+            case R.id.femaleCheckBox:
+                if (checked)
+                    // Person is female
+                    break;
+        }
+    }
 
 
 }
