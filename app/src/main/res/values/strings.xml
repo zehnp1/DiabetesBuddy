@@ -31,7 +31,11 @@ Broteinheiten in bestimmten Nahrungsmitteln stecken!</string>
 
     //shop.xml
     <string name="shopTitel">Banana Shop</string>
+    <string name="anzahlBananen">12</string>
     <string name="shopDuHast">Du Hast:</string>
+    <string name="preisSkate">5</string>
+    <string name="preisZufall">10</string>
+
 
 
 
