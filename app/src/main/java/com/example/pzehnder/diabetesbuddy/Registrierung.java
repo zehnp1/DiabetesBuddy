@@ -29,7 +29,14 @@ public class Registrierung extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
         dropdown.setAdapter(adapter);
 
-  
+        Button buttonRegAbschluss = (Button) findViewById(R.id.RegistrierungsButton);
+        buttonRegAbschluss.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent homeView = new Intent(Registrierung.this, Home.class);
+                startActivity(homeView);
+            }
+
+        });
 
     }
 
