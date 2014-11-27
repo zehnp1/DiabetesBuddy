@@ -119,38 +119,6 @@
         android:layout_centerHorizontal="true"
         />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="M"
-        android:id="@+id/maleCheckBox"
-        android:checked="false"
-        android:textStyle="bold"
-        android:layout_toEndOf="@+id/RegistrierungTitel"
-        android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/femaleCheckBox"
-        android:layout_alignStart="@+id/femaleCheckBox" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="W"
-        android:id="@+id/femaleCheckBox"
-        android:checked="false"
-        android:textStyle="bold"
-        android:layout_alignEnd="@+id/password" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Geschlecht:"
-        android:id="@+id/geschlecht"
-        android:textStyle="bold"
-        android:layout_alignBottom="@+id/maleCheckBox"
-        android:layout_toLeftOf="@+id/femaleCheckBox"
-        android:layout_toStartOf="@+id/femaleCheckBox" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -158,10 +126,10 @@
         android:ems="10"
         android:textStyle="bold"
         android:id="@+id/birthday"
-        android:layout_below="@+id/maleCheckBox"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:hint="Geburtsdatum" />
+        android:hint="Geburtsdatum"
+        android:layout_alignStart="@+id/password"
+        android:layout_below="@+id/weight"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -169,12 +137,91 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/weight"
-        android:layout_below="@+id/birthday"
-        android:layout_centerHorizontal="true"
         android:hint="Gewicht in kg"
         android:textStyle="bold"
-        />
+        android:layout_below="@+id/Sprache"
+        android:layout_centerHorizontal="true" />
 
+    <Spinner
+        android:id="@+id/Sprache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_toEndOf="@+id/geschlecht"
+        android:layout_below="@+id/gridLayout"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_alignParentEnd="false" />
+
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/femaleCheckBox"
+        android:layout_below="@+id/password"
+        android:id="@+id/gridLayout">
+
+        <TextView
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Geschlecht:"
+            android:id="@+id/geschlecht"
+            android:textStyle="bold"
+            android:layout_alignBottom="@+id/maleCheckBox"
+            android:layout_toLeftOf="@+id/femaleCheckBox"
+            android:layout_toStartOf="@+id/femaleCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginLeft="80dp" />
+
+        <RadioButton
+            android:layout_width="58dp"
+            android:layout_height="49dp"
+            android:text="M"
+            android:id="@+id/maleCheckBox"
+            android:checked="false"
+            android:textStyle="bold"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_below="@+id/gridLayout"
+            android:layout_alignRight="@+id/birthday"
+            android:layout_alignEnd="@+id/birthday" />
+
+        <RadioButton
+            android:layout_width="59dp"
+            android:layout_height="53dp"
+            android:text="W"
+            android:id="@+id/femaleCheckBox"
+            android:checked="false"
+            android:textStyle="bold"
+            android:layout_below="@+id/maleCheckBox"
+            android:layout_alignRight="@+id/RegistrierungTitel"
+            android:layout_alignEnd="@+id/RegistrierungTitel"
+            android:layout_alignParentEnd="true"
+            android:layout_row="0"
+            android:layout_column="2" />
+
+    </GridLayout>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Registrierung abschliessen"
+        android:id="@+id/RegistrierungsButton"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:background="@drawable/button"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/birthday"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 

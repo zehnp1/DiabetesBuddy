@@ -24,9 +24,14 @@ public class Registrierung extends Activity {
         setContentView(R.layout.registrierung);
 
 
+        Spinner dropdown = (Spinner)findViewById(R.id.Sprache);
+        String[] items = new String[]{"Deutsch", "Französisch", "Italienisch"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+        dropdown.setAdapter(adapter);
+
+  
+
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
