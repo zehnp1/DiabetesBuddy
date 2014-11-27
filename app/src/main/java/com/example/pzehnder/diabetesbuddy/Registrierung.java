@@ -7,6 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
+import android.widget.ArrayAdapter;
+
 
 
 
@@ -21,6 +25,7 @@ public class Registrierung extends Activity {
 
 
     }
+
 
 
     @Override
