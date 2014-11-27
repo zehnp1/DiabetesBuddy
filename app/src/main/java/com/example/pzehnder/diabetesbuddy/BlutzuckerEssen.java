@@ -5,14 +5,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TabHost.TabSpec;
 import android.widget.TabHost;
+import android.widget.TextView;
 
-
-
+import java.util.Calendar;
 
 
 public class BlutzuckerEssen extends Activity {
+
+    private TextView bzDisplayDate;
+    private DatePicker dpResult;
+
+    private int year;
+    private int month;
+    private int day;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +48,33 @@ public class BlutzuckerEssen extends Activity {
         tabHost.addTab(spec1);
         tabHost.addTab(spec2);
 
+        setCurrentDateOnView();
+
+        Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
+        String[] items = new String[]{"1", "2", "three"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+        dropdown.setAdapter(adapter);
+
+    }
+
+    public void setCurrentDateOnView() {
+
+        bzDisplayDate = (TextView) findViewById(R.id.bzDate);
+        dpResult = (DatePicker) findViewById(R.id.dpResult);
+
+        final Calendar c = Calendar.getInstance();
+        year = c.get(Calendar.YEAR);
+        month = c.get(Calendar.MONTH);
+        day = c.get(Calendar.DAY_OF_MONTH);
+
+        // set current date into textview
+        bzDisplayDate.setText(new StringBuilder()
+                // Month is 0 based, just add 1
+                .append(month + 1).append("-").append(day).append("-")
+                .append(year).append(" "));
+
+        // set current date into datepicker
+        dpResult.init(year, month, day, null);
 
     }
 

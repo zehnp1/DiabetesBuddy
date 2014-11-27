@@ -29,14 +29,30 @@
                 android:paddingTop="60px"
                 >
 
-                <Button
+                <TextView
+                    android:id="@+id/bzDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="test"
-                    android:id="@+id/button3"
-                    android:layout_alignParentTop="true"
+                    android:text="blabla"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+                <DatePicker
+                    android:id="@+id/dpResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:calendarViewShown="false"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="133dp" />
+                    android:layout_marginTop="50dp" />
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
             </RelativeLayout>
 
             <RelativeLayout
