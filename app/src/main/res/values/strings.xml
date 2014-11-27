@@ -36,6 +36,9 @@ Broteinheiten in bestimmten Nahrungsmitteln stecken!</string>
     <string name="preisSkate">5</string>
     <string name="preisZufall">10</string>
 
+    //be_schätzen.xml
+    <string name="beTitel">BE Wert schätzen</string>
+
 
 
 
