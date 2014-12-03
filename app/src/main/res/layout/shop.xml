@@ -72,8 +72,14 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:id="@+id/shoplist">
 
+            <com.example.pzehnder.diabetesbuddy.ShopCompWidget
+                android:id="@+id/shopcomp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </com.example.pzehnder.diabetesbuddy.ShopCompWidget>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"

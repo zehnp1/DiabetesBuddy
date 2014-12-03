@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.*;
 import android.view.View;
 
+import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
 
 
 public class Login extends Activity {
@@ -16,7 +17,6 @@ public class Login extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         Button buttonLogin = (Button) findViewById(R.id.homeButton1);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
