@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.*;
 import android.view.View;
@@ -13,6 +14,13 @@ import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
 
 public class Login extends Activity {
 
+    private static DatabaseHandler dbHandler;
+    private static final String DATABASE_NAME = "diabetsbuddy_db";
+    private static final int DATABASE_VERSION = 1;
+
+    private static final String SHOP_TABLE = "shop";
+    private final static String ARTICLE_NAME = "name";
+    private final static String ARTICLE_PRICE = "price";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +51,11 @@ public class Login extends Activity {
             }
 
         });
+        dbHandler = new DatabaseHandler(this);
+        String crateShopTable = "CREATE TABLE " + SHOP_TABLE + " ("
+                + ARTICLE_NAME + " TEXT,"
+                + ARTICLE_PRICE + " INTEGER)";
+        Log.d("bal", crateShopTable);
     }
 
 
@@ -58,6 +71,10 @@ public class Login extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public static DatabaseHandler getDb()
+    {
+        return dbHandler;
     }
 
     private boolean isFirstTime()

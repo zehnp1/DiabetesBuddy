@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.sql.SQLData;
 
@@ -37,8 +38,9 @@ public class DatabaseHandler
 
         public void onCreate(SQLiteDatabase db) {
             String crateShopTable = "CREATE TABLE " + SHOP_TABLE + " ("
-                    + ARTICLE_NAME + "TEXT  PRIMAREY KEY,"
-                    + ARTICLE_PRICE + "INTEGER)";
+                    + ARTICLE_NAME + " TEXT  PRIMAREY KEY,"
+                    + ARTICLE_PRICE + " INTEGER)";
+            Log.d("bal",crateShopTable);
             try
             {
                 db.execSQL(crateShopTable);

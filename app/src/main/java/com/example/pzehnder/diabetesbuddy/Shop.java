@@ -29,7 +29,7 @@ public class Shop extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shop);
-   //     InitDbValues.init(getApplicationContext());
+        InitDbValues.init(this);
         list = (LinearLayout)findViewById(R.id.shoplist);
 
         shopCompWidget2 = new ShopCompWidget(list.getContext());
