@@ -38,12 +38,11 @@ public class Shop extends Activity {
 
         dbHandler = Login.getDb();
         dbHandler.open();
-        Cursor shopData = dbHandler.returnShopData();
-        Cursor userShopData = dbHandler.returnUSER_ShopData("ivan");
-        if (userShopData.moveToFirst()) {
+        Cursor shopData = dbHandler.returnShopData("ivan");
+        if (shopData.moveToFirst()) {
             do {
-                    shopList.add(new String[]{userShopData.getString(0),userShopData.getString(1),userShopData.getString(2),userShopData.getString(3)});
-            } while (userShopData.moveToNext());
+                    shopList.add(new String[]{shopData.getString(0),shopData.getString(1),shopData.getString(2),shopData.getString(3)});
+            } while (shopData.moveToNext());
         }
 
         dbHandler.close();

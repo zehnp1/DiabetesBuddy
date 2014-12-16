@@ -1,234 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/scrollView"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" >
-
-<RelativeLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="1"
     android:background="@drawable/dschungel"
-    android:focusable="true">
+    >
 
-
-
-
-
-
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="110dp"
-        android:id="@+id/imageView"
-        android:src="@drawable/holztafellang1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Registrierung"
-        android:id="@+id/RegistrierungTitel"
-        android:textColor="#FFCB3B"
-        android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        android:ems="10"
-        android:id="@+id/nameFeld"
-        android:textStyle="bold"
-        android:autoText="false"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Vorname"
-        android:ems="10"
-        android:id="@+id/vornameFeld"
-        android:textStyle="bold"
-        android:autoText="true"
-        android:layout_below="@+id/nameFeld"
-        android:layout_centerHorizontal="true"
-        />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textWebEmailAddress"
-        android:hint="eMail"
-        android:ems="10"
-        android:id="@+id/eMailFeld"
-        android:textStyle="bold"
-        android:autoText="true"
-        android:layout_below="@+id/vornameFeld"
-        android:layout_centerHorizontal="true"
-        />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Benutzername"
-        android:ems="10"
-        android:id="@+id/usernameFeld"
-        android:textStyle="bold"
-        android:autoText="true"
-        android:layout_below="@+id/eMailFeld"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/Passwort"
-        android:hint="Passwort"
-        android:textStyle="bold"
-        android:layout_below="@+id/usernameFeld"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/password"
-        android:hint="Passwort"
-        android:textStyle="bold"
-        android:layout_below="@+id/Passwort"
-        android:layout_centerHorizontal="true"
-        />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:textStyle="bold"
-        android:id="@+id/birthday"
-        android:hint="Geburtsdatum"
-        android:layout_alignStart="@+id/password"
-        android:layout_below="@+id/weight"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/weight"
-        android:hint="Gewicht in kg"
-        android:textStyle="bold"
-        android:layout_below="@+id/Sprache"
-        android:layout_centerHorizontal="true" />
-
-    <Spinner
-        android:id="@+id/Sprache"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        android:layout_toEndOf="@+id/geschlecht"
-        android:layout_below="@+id/Geschlechtswahl"
+        android:layout_height="93dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/holztafellang1"
         android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_alignParentEnd="false" />
+        android:layout_marginRight="80dp">
 
-    <GridLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/femaleCheckBox"
-        android:layout_below="@+id/password"
-        android:id="@+id/Geschlechtswahl"
-        android:useDefaultMargins="false"
-        android:rowOrderPreserved="false">
-
-        <RadioGroup
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
         <TextView
-            android:layout_width="121dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Geschlecht:"
-            android:id="@+id/geschlecht"
-            android:textStyle="bold"
-            android:layout_alignBottom="@+id/maleCheckBox"
-            android:layout_toLeftOf="@+id/femaleCheckBox"
-            android:layout_toStartOf="@+id/femaleCheckBox"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_marginLeft="80dp" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Registrierung"
+            android:id="@+id/RegistrierungTitel"
+            android:textColor="#FFCB3B"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top|center">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Name"
+                android:ems="10"
+                android:id="@+id/nameFeld"
+                android:textStyle="bold">
+
+             </EditText>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Vorname"
+                android:ems="10"
+                android:id="@+id/vornameFeld"
+                android:textStyle="bold"
+                android:autoText="true"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textWebEmailAddress"
+                android:hint="eMail"
+                android:ems="10"
+                android:id="@+id/eMailFeld"
+                android:textStyle="bold"
+                android:autoText="true"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Benutzername"
+                android:ems="10"
+                android:id="@+id/usernameFeld"
+                android:textStyle="bold"
+                android:autoText="true">
+             </EditText>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/PasswortFeld"
+                android:hint="Passwort"
+                android:textStyle="bold" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/passwortBestätigen"
+                android:hint="Passwort"
+                android:textStyle="bold"
+                android:layout_below="@+id/Passwort"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:textStyle="bold"
+                android:id="@+id/birthday"
+                android:hint="Geburtsdatum" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/weight"
+                android:hint="Gewicht in kg"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/Sprache"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
+                android:layout_below="@+id/Geschlechtswahl"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"/>
+
+            <GridLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/Geschlechtswahl"
+                android:useDefaultMargins="false"
+                android:rowOrderPreserved="false">
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <TextView
+                    android:layout_width="121dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Geschlecht:"
+                    android:id="@+id/geschlecht"
+                    android:textStyle="bold"/>
 
 
-        <RadioButton
-            android:layout_width="59dp"
-            android:layout_height="53dp"
-            android:text="@string/maleCheckBox"
-            android:id="@+id/maleCheckBox"
-            android:checked="false"
-            android:textStyle="bold"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_below="@+id/Geschlechtswahl"
-            android:layout_alignRight="@+id/birthday"
-            android:layout_alignEnd="@+id/birthday" />
+                <RadioButton
+                    android:layout_width="59dp"
+                    android:layout_height="53dp"
+                    android:text="@string/maleCheckBox"
+                    android:id="@+id/maleCheckBox"
+                    android:checked="false"
+                    android:textStyle="bold"/>
 
-        <RadioButton
-            android:layout_width="59dp"
-            android:layout_height="53dp"
-            android:text="@string/femaleCheckBox"
-            android:id="@+id/femaleCheckBox"
-            android:checked="false"
-            android:textStyle="bold"
-            android:layout_below="@+id/maleCheckBox"
-            android:layout_alignRight="@+id/RegistrierungTitel"
-            android:layout_alignEnd="@+id/RegistrierungTitel"
-            android:layout_row="0"
-            android:layout_column="2" />
-    </RadioGroup>
+                <RadioButton
+                    android:layout_width="59dp"
+                    android:layout_height="53dp"
+                    android:text="@string/femaleCheckBox"
+                    android:id="@+id/femaleCheckBox"
+                    android:checked="false"
+                    android:textStyle="bold" />
+            </RadioGroup>
 
-    </GridLayout>
+            </GridLayout>
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Registrierung abschliessen"
-        android:id="@+id/RegistrierungsButton"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:background="@drawable/button"
-        android:shadowColor="#000000"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/birthday"
-        android:layout_centerHorizontal="true" />
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Registrierung abschliessen"
+                android:id="@+id/RegistrierungsButton"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:background="@drawable/button"
+                android:shadowColor="#000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:layout_marginTop="24dp" />
 
-</RelativeLayout>
-
+        </LinearLayout>
     </ScrollView>
+
+</LinearLayout>

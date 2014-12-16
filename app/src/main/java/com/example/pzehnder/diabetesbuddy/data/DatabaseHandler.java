@@ -14,6 +14,7 @@ import java.sql.SQLData;
  */
 public class DatabaseHandler
 {
+    //Database
     private static final String DATABASE_NAME = "diabetsbuddy_db";
     private static final int DATABASE_VERSION = 1;
 
@@ -25,12 +26,21 @@ public class DatabaseHandler
     //user Table
     private static final String USER_TABLE = "user";
         private final static String USER_NAME = "user_name";
+        private final static String NAME = "name";
+        private final static String VORNAME = "vorname";
+        private final static String MAIL = "mail";
         private final static String PASSWORD = "password";
+        private final static String WEIGHT = "weight";
+        private final static String BIRTHDATE = "birthdate";
+        private final static String GENDER = "gender";
+        private final static String LANGUAGE = "language";
+        private final static String BANANAS = "bananas";
+
 
 
     //userShop Table
     private static final String USER_SHOP_TABLE = "user_shop";
-
+        //Zwischentabelle mit shop.article_name und user.user_name
 
     DatabaseHelper dbHelper;
     Context context;
@@ -56,11 +66,25 @@ public class DatabaseHandler
                     + ARTICLE_NAME + " TEXT,"
                     + USER_NAME + " TEXT, PRIMARY KEY("+ARTICLE_NAME+", "+USER_NAME+"))";
 
+            String crateUserTable = "CREATE TABLE IF NOT EXISTS " + USER_TABLE + " ("
+                    + USER_NAME + " TEXT PRIMARY KEY,"
+                    + NAME + " TEXT, "
+                    + VORNAME + " TEXT, "
+                    + MAIL + " TEXT, "
+                    + PASSWORD + " TEXT, "
+                    + WEIGHT + " REAL, "
+                    + BIRTHDATE + " TEXT, "
+                    + GENDER + " TEXT, "
+                    + LANGUAGE + " TEXT, "
+                    + BANANAS + " INTEGER"
+                    + ")";
+
             Log.d("bal",crateUser_ShopTable);
             try
             {
                 db.execSQL(crateShopTable);
                 db.execSQL(crateUser_ShopTable);
+                db.execSQL(crateUserTable);
             }
             catch (Exception e)
             {
@@ -112,13 +136,37 @@ public class DatabaseHandler
             return 0;
         }
     }
-    public Cursor returnShopData()
+
+    public long insertUserData(String user_name, String name, String vorname, String mail, String password, Float weight, String birthDate, String gender)
     {
-       return db.query(SHOP_TABLE,new String[]{ARTICLE_NAME,ARTICLE_PRICE},null,null,null,null,null);
+        ContentValues content = new ContentValues();
+        content.put(USER_NAME,user_name);
+        content.put(NAME,name);
+        content.put(VORNAME,vorname);
+        content.put(MAIL,mail);
+        content.put(PASSWORD,password);
+        content.put(WEIGHT,weight);
+        content.put(BIRTHDATE,birthDate);
+        content.put(GENDER,gender);
+        content.put(LANGUAGE,"Deutsch");
+        content.put(BANANAS,0);
+        try{
+            return db.insertOrThrow(USER_TABLE,null,content);
+        }
+        catch (Exception e)
+        {
+            Log.d("DB insert Error",e.toString());
+            return 0;
+        }
     }
-    public Cursor returnUSER_ShopData(String user)
+    public Cursor returnShopData(String user)
     {
         final String MY_QUERY = "SELECT * FROM shop LEFT JOIN user_shop ON user_shop.user_name =? AND shop.article_name = user_shop.article_name ";
+        return db.rawQuery(MY_QUERY,new String[]{user});
+    }
+    public Cursor returnUserData(String user)
+    {
+        final String MY_QUERY = "SELECT * FROM user WHERE user_name =?";
         return db.rawQuery(MY_QUERY,new String[]{user});
     }
 
