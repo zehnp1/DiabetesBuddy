@@ -2,8 +2,10 @@ package com.example.pzehnder.diabetesbuddy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,36 +20,61 @@ import com.example.pzehnder.diabetesbuddy.data.InitDbValues;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import java.util.ArrayList;
+
 
 public class Shop extends Activity {
     private ShopCompWidget shopCompWidget1;
     private ShopCompWidget shopCompWidget2;
     private ShopCompWidget shopCompWidget3;
-    private LinearLayout list;
-    private LinearLayout test;
+    private DatabaseHandler dbHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shop);
         InitDbValues.init(this);
-        list = (LinearLayout)findViewById(R.id.shoplist);
 
-        shopCompWidget2 = new ShopCompWidget(list.getContext());
-//        shopCompWidget2.setPriceText("20");
+        ArrayList<String[]> shopList = new ArrayList<String[]>();
 
-      // LayoutInflater inflater = LayoutInflater.from(this);
-      // shopCompWidget2 = (LinearLayout)inflater.inflate(R.layout.shop_component,list,false);
+        dbHandler = Login.getDb();
+        dbHandler.open();
+        Cursor shopData = dbHandler.returnShopData();
+        Cursor userShopData = dbHandler.returnUSER_ShopData("ivan");
+        if (userShopData.moveToFirst()) {
+            do {
+                    shopList.add(new String[]{userShopData.getString(0),userShopData.getString(1),userShopData.getString(2),userShopData.getString(3)});
+            } while (userShopData.moveToNext());
+        }
 
+        dbHandler.close();
 
+        for(int i = 0; i < shopList.size();i++) {
+            Log.d("bal", shopList.get(i)[0] + " " + shopList.get(i)[1] + " " + shopList.get(i)[2] + " " + shopList.get(i)[3]);
+        }
 
+        shopCompWidget1 = (ShopCompWidget)findViewById(R.id.shopcomp1);
+        shopCompWidget1.setPriceText(shopList.get(0)[1]);
+        shopCompWidget1.setArticleImage(shopList.get(0)[0]);
+        if(shopList.get(0)[2] != null)
+        {
+            shopCompWidget1.setVisability(false);
+        }
 
-         list.addView(shopCompWidget2);
+        shopCompWidget2 = (ShopCompWidget)findViewById(R.id.shopcomp2);
+        shopCompWidget2.setPriceText(shopList.get(1)[1]);
+        shopCompWidget2.setArticleImage(shopList.get(1)[0]);
+        if(shopList.get(1)[2]!= null)
+        {
+            shopCompWidget2.setVisability(false);
+        }
 
-
-
-       shopCompWidget1 = (ShopCompWidget)findViewById(R.id.shopcomp);
-       shopCompWidget1.setPriceText("80");
-       shopCompWidget1.setArticleImage("sonnenbrille");
+        shopCompWidget3 = (ShopCompWidget)findViewById(R.id.shopcomp3);
+        shopCompWidget3.setPriceText(shopList.get(2)[1]);
+        shopCompWidget3.setArticleImage(shopList.get(2)[0]);
+        if(shopList.get(2)[2] != null)
+        {
+            shopCompWidget3.setVisability(false);
+        }
 
     }
 

@@ -16,6 +16,9 @@ public class InitDbValues {
         dbHandler = Login.getDb();
         dbHandler.open();
         dbHandler.insertShopData("sonnenbrille",17);
+        dbHandler.insertShopData("board",20);
+        dbHandler.insertShopData("zufall",30);
+        dbHandler.insertUser_ShopData("kai","board");
         dbHandler.close();
     }
 }
