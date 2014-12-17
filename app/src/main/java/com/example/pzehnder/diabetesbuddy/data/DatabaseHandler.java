@@ -36,11 +36,29 @@ public class DatabaseHandler
         private final static String LANGUAGE = "language";
         private final static String BANANAS = "bananas";
 
-
-
     //userShop Table
     private static final String USER_SHOP_TABLE = "user_shop";
         //Zwischentabelle mit shop.article_name und user.user_name
+
+    //quiz Table
+    private static final String QUIZ_TABLE = "quiz";
+        private final static String QUIZ_FRAGE = "quiz_frage";
+        private final static String QUIZ_ANTWORT1 = "quiz_antwort1";
+        private final static String QUIZ_ANTWORT2 = "quiz_antwort2";
+        private final static String QUIZ_ANTWORT3 = "quiz_antwort3";
+        private final static String QUIZ_ANTWORT4 = "quiz_antwort4";
+        private final static String QUIZ_CORRECT = "quiz_correct";
+        private final static String QUIZ_LANGUAGE = "quiz_language";
+
+    //be_shätzen Table
+    private static final String BE_TABLE = "be";
+    private final static String NAHRUNGSMITTEL = "nahrungsmittel";
+    private final static String BE_ANTWORT1 = "be_antwort1";
+    private final static String BE_ANTWORT2 = "be_antwort2";
+    private final static String BE_ANTWORT3 = "be_antwort3";
+    private final static String BE_CORRECT = "be_correct";
+    private final static String BE_EINHEIT = "einheit";
+
 
     DatabaseHelper dbHelper;
     Context context;
@@ -79,19 +97,38 @@ public class DatabaseHandler
                     + BANANAS + " INTEGER"
                     + ")";
 
-            Log.d("bal",crateUser_ShopTable);
+            String crateQuizTable = "CREATE TABLE IF NOT EXISTS " + QUIZ_TABLE + " ("
+                    + QUIZ_FRAGE + " TEXT PRIMARY KEY,"
+                    + QUIZ_ANTWORT1 + " TEXT, "
+                    + QUIZ_ANTWORT2 + " TEXT, "
+                    + QUIZ_ANTWORT3 + " TEXT, "
+                    + QUIZ_ANTWORT4 + " TEXT, "
+                    + QUIZ_CORRECT + " INTEGER, "
+                    + QUIZ_LANGUAGE + " TEXT"
+                    + ")";
+
+            String crateBeTable = "CREATE TABLE IF NOT EXISTS " + BE_TABLE + " ("
+                    + NAHRUNGSMITTEL + " TEXT PRIMARY KEY,"
+                    + BE_ANTWORT1 + " TEXT, "
+                    + BE_ANTWORT2 + " TEXT, "
+                    + BE_ANTWORT3 + " TEXT, "
+                    + BE_CORRECT + " INTEGER, "
+                    + BE_EINHEIT + " TEXT"
+                    + ")";
+
             try
             {
                 db.execSQL(crateShopTable);
                 db.execSQL(crateUser_ShopTable);
                 db.execSQL(crateUserTable);
+                db.execSQL(crateQuizTable);
+                db.execSQL(crateBeTable);
             }
             catch (Exception e)
             {
-                Log.d("bal","test");
+                Log.d("Table Create Error",e.toString());
                 e.printStackTrace();
             }
-
         }
 
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -137,6 +174,45 @@ public class DatabaseHandler
         }
     }
 
+    public long insertQuizData(String frage, String antwort1, String antwort2, String antwort3, String antwort4, int correct, String language)
+    {
+        ContentValues content = new ContentValues();
+        content.put(QUIZ_FRAGE,frage);
+        content.put(QUIZ_ANTWORT1,antwort1);
+        content.put(QUIZ_ANTWORT2,antwort2);
+        content.put(QUIZ_ANTWORT3,antwort3);
+        content.put(QUIZ_ANTWORT4,antwort4);
+        content.put(QUIZ_CORRECT,correct);
+        content.put(QUIZ_LANGUAGE,language);
+        try{
+            return db.insertOrThrow(QUIZ_TABLE,null,content);
+        }
+        catch (Exception e)
+        {
+            Log.d("DB insert Error",e.toString());
+            return 0;
+        }
+    }
+
+    public long insertBeData(String nahrungsmittel, String antwort1, String antwort2, String antwort3, int correct, String einheit)
+    {
+        ContentValues content = new ContentValues();
+        content.put(NAHRUNGSMITTEL,nahrungsmittel);
+        content.put(BE_ANTWORT1,antwort1);
+        content.put(BE_ANTWORT2,antwort2);
+        content.put(BE_ANTWORT3,antwort3);
+        content.put(BE_CORRECT,correct);
+        content.put(BE_EINHEIT,einheit);
+        try{
+            return db.insertOrThrow(BE_TABLE,null,content);
+        }
+        catch (Exception e)
+        {
+            Log.d("DB insert Error",e.toString());
+            return 0;
+        }
+    }
+
     public long insertUserData(String user_name, String name, String vorname, String mail, String password, Float weight, String birthDate, String gender)
     {
         ContentValues content = new ContentValues();
@@ -168,6 +244,16 @@ public class DatabaseHandler
     {
         final String MY_QUERY = "SELECT * FROM user WHERE user_name =?";
         return db.rawQuery(MY_QUERY,new String[]{user});
+    }
+    public Cursor returnQuizData(String language)
+    {
+        final String MY_QUERY = "SELECT * FROM quiz WHERE quiz_language =?";
+        return  db.rawQuery(MY_QUERY,new String[]{language});
+    }
+    public Cursor returnBeData(String einheit)
+    {
+        final String MY_QUERY = "SELECT * FROM be WHERE einheit =?";
+        return  db.rawQuery(MY_QUERY,new String[]{einheit});
     }
 
 }

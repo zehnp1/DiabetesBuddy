@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
 import com.example.pzehnder.diabetesbuddy.data.InitDbValues;
@@ -28,17 +29,20 @@ public class Shop extends Activity {
     private ShopCompWidget shopCompWidget2;
     private ShopCompWidget shopCompWidget3;
     private DatabaseHandler dbHandler;
+    private static TextView anzahlBanana;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shop);
-        InitDbValues.init(this);
 
         ArrayList<String[]> shopList = new ArrayList<String[]>();
 
+        anzahlBanana = (TextView)findViewById(R.id.anzahlBananas);
+        anzahlBanana.setText(Login.bananas + "");
+
         dbHandler = Login.getDb();
         dbHandler.open();
-        Cursor shopData = dbHandler.returnShopData("ivan");
+        Cursor shopData = dbHandler.returnShopData(Login.user +"");
         if (shopData.moveToFirst()) {
             do {
                     shopList.add(new String[]{shopData.getString(0),shopData.getString(1),shopData.getString(2),shopData.getString(3)});
@@ -98,7 +102,10 @@ public class Shop extends Activity {
     }
 
 
-
+    public static void setBananas(int bananas)
+    {
+        anzahlBanana.setText(bananas + "");
+    }
 
 
 }

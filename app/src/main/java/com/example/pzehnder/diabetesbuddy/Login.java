@@ -10,17 +10,15 @@ import android.widget.*;
 import android.view.View;
 
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
+import com.example.pzehnder.diabetesbuddy.data.InitDbValues;
 
 
 public class Login extends Activity {
 
     private static DatabaseHandler dbHandler;
-    private static final String DATABASE_NAME = "diabetsbuddy_db";
-    private static final int DATABASE_VERSION = 1;
+    public static String user;
+    public static int bananas = 0;
 
-    private static final String SHOP_TABLE = "shop";
-    private final static String ARTICLE_NAME = "name";
-    private final static String ARTICLE_PRICE = "price";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +26,8 @@ public class Login extends Activity {
         Button buttonLogin = (Button) findViewById(R.id.homeButton1);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                EditText  userfeld = (EditText)findViewById(R.id.nameFeld);
+                user = userfeld.getText().toString();
 
                 if (isFirstTime()) {
                     Intent welcomeView = new Intent(Login.this, Welcome.class);
@@ -52,10 +52,8 @@ public class Login extends Activity {
 
         });
         dbHandler = new DatabaseHandler(this);
-        String crateShopTable = "CREATE TABLE " + SHOP_TABLE + " ("
-                + ARTICLE_NAME + " TEXT,"
-                + ARTICLE_PRICE + " INTEGER)";
-        Log.d("bal", crateShopTable);
+        InitDbValues.init(this);
+
     }
 
 

@@ -1,11 +1,13 @@
 package com.example.pzehnder.diabetesbuddy;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -54,14 +56,43 @@ public class ShopCompWidget extends LinearLayout {
                 Log.d("test", articleName);
                 DatabaseHandler db = Login.getDb();
                 db.open();
-                db.insertUser_ShopData("ivan",articleName);
+                final Dialog dialog = new Dialog(getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog);
+                Button button = (Button)dialog.findViewById(R.id.dialogButton);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.hide();
+                    }
+                });
+                TextView tittle = (TextView)dialog.findViewById(R.id.dialogTitle);
+                ImageView image = (ImageView)dialog.findViewById(R.id.dialogImage);
+                TextView dialogText = (TextView)dialog.findViewById(R.id.dialogText);
+                if(Login.bananas >= Integer.parseInt(price)) {
+                    tittle.setText("Glückwunsch!");
+                    int id = getResources().getIdentifier(articleName, "drawable", "com.example.pzehnder.diabetesbuddy");
+                    image.setImageResource(id);
+                    dialogText.setText("du hast gekauft: " + articleName);
+                    db.insertUser_ShopData(Login.user,articleName);
+                    shopComp.setVisability(false);
+                    Login.bananas = Login.bananas - Integer.parseInt(price);
+                    Shop.setBananas(Login.bananas);
+                }
+                else
+                {
+                    tittle.setText("Sorry!");
+                    image.setImageResource(R.drawable.buddy_sad);
+                    dialogText.setText("du hast nicht genügend Bananen");
+                }
+                dialog.show();
                 db.close();
-                shopComp.setVisability(false);
             }
         });
     }
 
     public void setPriceText(String priceText) {
+        this.price = priceText;
         this.priceText.setText(priceText);
     }
 

@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/anzahlBananen"
-            android:id="@+id/textView8"
+            android:id="@+id/anzahlBananas"
             android:gravity="center"
             android:layout_weight="0.14" />
 
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="bananen"
+            android:text="Bananen"
             android:id="@+id/textView5"
             android:gravity="center_vertical"
             android:layout_weight="0.61" />
@@ -78,8 +78,7 @@
             <com.example.pzehnder.diabetesbuddy.ShopCompWidget
                 android:id="@+id/shopcomp1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
             </com.example.pzehnder.diabetesbuddy.ShopCompWidget>
 
             <com.example.pzehnder.diabetesbuddy.ShopCompWidget

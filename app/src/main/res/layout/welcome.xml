@@ -55,11 +55,8 @@
         android:layout_below="@+id/cookiePicture"
         android:layout_alignLeft="@+id/cookiePicture"
         android:layout_alignStart="@+id/cookiePicture"
-
         android:textColor="#000000"
         android:textSize="18sp"
-
-
         android:background="@drawable/button"
         android:shadowColor="#000000"
         android:shadowDx="0"
