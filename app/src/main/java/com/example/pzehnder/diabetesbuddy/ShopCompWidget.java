@@ -73,7 +73,7 @@ public class ShopCompWidget extends LinearLayout {
                     tittle.setText("Glückwunsch!");
                     int id = getResources().getIdentifier(articleName, "drawable", "com.example.pzehnder.diabetesbuddy");
                     image.setImageResource(id);
-                    dialogText.setText("du hast gekauft: " + articleName);
+                    dialogText.setText("Du hast gekauft: " + articleName);
                     db.insertUser_ShopData(Login.user,articleName);
                     shopComp.setVisability(false);
                     Login.bananas = Login.bananas - Integer.parseInt(price);
@@ -83,7 +83,7 @@ public class ShopCompWidget extends LinearLayout {
                 {
                     tittle.setText("Sorry!");
                     image.setImageResource(R.drawable.buddy_sad);
-                    dialogText.setText("du hast nicht genügend Bananen");
+                    dialogText.setText("Du hast nicht genügend Bananen");
                 }
                 dialog.show();
                 db.close();
