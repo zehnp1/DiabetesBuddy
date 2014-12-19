@@ -3,6 +3,7 @@ package com.example.pzehnder.diabetesbuddy;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -73,6 +74,11 @@ public class Home extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_profil) {
+            return true;
+        }
+        if (id == R.id.quiz_update) {
+            Log.d("test", "sucsess");
+            new AsynchNetwork().execute();
             return true;
         }
         return super.onOptionsItemSelected(item);

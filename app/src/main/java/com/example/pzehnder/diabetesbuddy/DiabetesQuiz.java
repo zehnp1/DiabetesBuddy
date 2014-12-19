@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -62,10 +63,9 @@ public class DiabetesQuiz extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.login, menu);
+        getMenuInflater().inflate(R.menu.login, menu);//Menu Resource, Menu
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -73,6 +73,11 @@ public class DiabetesQuiz extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_profil) {
+            return true;
+        }
+        if (id == R.id.quiz_update) {
+            Log.d("test", "sucsess");
+            new AsynchNetwork().execute();
             return true;
         }
         return super.onOptionsItemSelected(item);

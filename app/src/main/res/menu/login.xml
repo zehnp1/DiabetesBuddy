@@ -9,4 +9,8 @@
         android:title="Einstellungen"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/quiz_update"
+        android:title="Quiz Update"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
 </menu>

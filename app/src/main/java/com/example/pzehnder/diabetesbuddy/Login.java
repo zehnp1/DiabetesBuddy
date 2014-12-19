@@ -1,16 +1,26 @@
 package com.example.pzehnder.diabetesbuddy;
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.*;
 import android.view.View;
 
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
 import com.example.pzehnder.diabetesbuddy.data.InitDbValues;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.IOException;
 
 
 public class Login extends Activity {
@@ -55,10 +65,12 @@ public class Login extends Activity {
         InitDbValues.init(this);
 
     }
-
-
-
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.login, menu);//Menu Resource, Menu
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -66,6 +78,11 @@ public class Login extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_profil) {
+            return true;
+        }
+        if (id == R.id.quiz_update) {
+            Log.d("test","sucsess");
+            new AsynchNetwork().execute();
             return true;
         }
         return super.onOptionsItemSelected(item);
