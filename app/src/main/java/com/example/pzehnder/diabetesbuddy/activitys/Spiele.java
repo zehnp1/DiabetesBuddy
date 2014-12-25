@@ -1,4 +1,4 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.activitys;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-
-
+import com.example.pzehnder.diabetesbuddy.R;
+import com.example.pzehnder.diabetesbuddy.data.AsynchNetwork;
 
 
 public class Spiele extends Activity {

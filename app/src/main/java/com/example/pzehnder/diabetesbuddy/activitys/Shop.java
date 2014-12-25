@@ -1,25 +1,17 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.activitys;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.Xml;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.pzehnder.diabetesbuddy.R;
+import com.example.pzehnder.diabetesbuddy.components.ShopCompWidget;
+import com.example.pzehnder.diabetesbuddy.data.AsynchNetwork;
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
-import com.example.pzehnder.diabetesbuddy.data.InitDbValues;
-
-import org.xmlpull.v1.XmlPullParser;
 
 import java.util.ArrayList;
 

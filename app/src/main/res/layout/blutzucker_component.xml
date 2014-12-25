@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_gravity="center_horizontal"
+    android:background="#ffffff"
+    android:id="@+id/sugarComp">
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sugarComp_time"
+        android:text="Uhrzeit"
+        android:background="@drawable/border_table"
+        android:layout_weight="0.3"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sugarComp_bz"
+        android:text="BZ"
+        android:background="@drawable/border_table"
+        android:layout_weight="0.15"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sugarComp_be"
+        android:text="BE"
+        android:background="@drawable/border_table"
+        android:layout_weight="0.15"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sugarComp_basal"
+        android:text="Basal"
+        android:background="@drawable/border_table"
+        android:layout_weight="0.2"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sugarComp_bolus"
+        android:layout_weight="0.25"
+        android:text="Bolus"
+        android:background="@drawable/border_table"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:background="@drawable/border_table"
+        android:weightSum="1"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/sugarComp_note"
+            android:src="@drawable/plus" />
+    </LinearLayout>
+
+</LinearLayout>

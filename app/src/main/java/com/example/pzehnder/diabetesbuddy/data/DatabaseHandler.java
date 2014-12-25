@@ -35,6 +35,7 @@ public class DatabaseHandler
         private final static String GENDER = "gender";
         private final static String LANGUAGE = "language";
         private final static String BANANAS = "bananas";
+        private final static String TELFON ="telefon";
 
     //userShop Table
     private static final String USER_SHOP_TABLE = "user_shop";
@@ -58,6 +59,17 @@ public class DatabaseHandler
     private final static String BE_ANTWORT3 = "be_antwort3";
     private final static String BE_CORRECT = "be_correct";
     private final static String BE_EINHEIT = "einheit";
+
+    //Blutzucke Werte
+    private static final String BS_VALUES = "bs_values";
+    private final static String BS_DATE = "bs_date";
+    private final static String BS_TIME = "bs_time";
+    private final static String BS_VALUE = "bs_value";
+    private final static String BS_BEVALUE = "bs_bevalue";
+    private final static String BS_BOLUS = "bolus";
+    private final static String BS_BASAL = "basal";
+    private final static String BS_NOTE = "bs_note";
+    private final static String BS_USER = "bs_user";
 
 
     DatabaseHelper dbHelper;
@@ -94,6 +106,7 @@ public class DatabaseHandler
                     + BIRTHDATE + " TEXT, "
                     + GENDER + " TEXT, "
                     + LANGUAGE + " TEXT, "
+                    + TELFON + " TEXT, "
                     + BANANAS + " INTEGER"
                     + ")";
 
@@ -116,6 +129,16 @@ public class DatabaseHandler
                     + BE_EINHEIT + " TEXT"
                     + ")";
 
+            String crateBs_valuesTable = "CREATE TABLE IF NOT EXISTS " + BS_VALUES + " ("
+                    + BS_DATE + " TEXT,"
+                    + BS_TIME + " TEXT,"
+                    + BS_VALUE + " REAL,"
+                    + BS_BEVALUE + " INTEGER,"
+                    + BS_BASAL + " INTEGER,"
+                    + BS_BOLUS+ " INTEGER,"
+                    + BS_NOTE + " TEXT,"
+                    + BS_USER + " TEXT, PRIMARY KEY("+BS_DATE+", "+BS_TIME+", "+BS_USER+"))";
+
             try
             {
                 db.execSQL(crateShopTable);
@@ -123,6 +146,7 @@ public class DatabaseHandler
                 db.execSQL(crateUserTable);
                 db.execSQL(crateQuizTable);
                 db.execSQL(crateBeTable);
+                db.execSQL(crateBs_valuesTable);
             }
             catch (Exception e)
             {
@@ -213,7 +237,7 @@ public class DatabaseHandler
         }
     }
 
-    public long insertUserData(String user_name, String name, String vorname, String mail, String password, Float weight, String birthDate, String gender)
+    public long insertUserData(String user_name, String name, String vorname, String mail, String password, Float weight, String birthDate, String gender,String telefon)
     {
         ContentValues content = new ContentValues();
         content.put(USER_NAME,user_name);
@@ -225,9 +249,41 @@ public class DatabaseHandler
         content.put(BIRTHDATE,birthDate);
         content.put(GENDER,gender);
         content.put(LANGUAGE,"Deutsch");
+        content.put(TELFON, telefon);
         content.put(BANANAS,0);
         try{
             return db.insertOrThrow(USER_TABLE,null,content);
+        }
+        catch (Exception e)
+        {
+            Log.d("DB insert Error",e.toString());
+            return 0;
+        }
+    }
+    public void updateUserBanana(int bananas,String user_name)
+    {
+        try {
+
+            db.execSQL("UPDATE user SET bananas =? WHERE user_name=?",new Object[]{bananas,user_name});
+        }
+        catch (Exception e)
+        {
+            Log.d("DB update Error",e.toString());
+        }
+    }
+    public long insertBs_valuesData(String date, String time,Float bs_value, Integer be_value, Integer basal, Integer bolus, String note, String user )
+    {
+        ContentValues content = new ContentValues();
+        content.put(BS_DATE,date);
+        content.put(BS_TIME,time);
+        content.put(BS_VALUE,bs_value);
+        content.put(BS_BEVALUE,be_value);
+        content.put(BS_BASAL,basal);
+        content.put(BS_BOLUS,bolus);
+        content.put(BS_NOTE,note);
+        content.put(BS_USER,user);
+        try{
+            return db.insertOrThrow(BS_VALUES,null,content);
         }
         catch (Exception e)
         {
@@ -254,6 +310,11 @@ public class DatabaseHandler
     {
         final String MY_QUERY = "SELECT * FROM be WHERE einheit =?";
         return  db.rawQuery(MY_QUERY,new String[]{einheit});
+    }
+    public Cursor returnBsValuesData(String date, String user)
+    {
+        final String MY_QUERY = "SELECT * FROM bs_values WHERE bs_date =? AND bs_user =? ORDER BY bs_time DESC";
+        return  db.rawQuery(MY_QUERY,new String[]{date,user});
     }
 
 }

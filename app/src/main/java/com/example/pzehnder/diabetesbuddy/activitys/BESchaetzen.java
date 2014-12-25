@@ -1,4 +1,4 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.activitys;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -13,37 +13,36 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pzehnder.diabetesbuddy.R;
+import com.example.pzehnder.diabetesbuddy.components.BeCompWidget;
+import com.example.pzehnder.diabetesbuddy.data.AsynchNetwork;
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
 
 
-public class DiabetesQuiz extends Activity {
+public class BESchaetzen extends Activity {
 
-    private static QuizCompWidget quizCompWidget;
-    private static int quizDataPosition;
+    private static BeCompWidget beCompWidget;
     private static Dialog dialog;
     private static TextView tittle;
     private static TextView dialogText;
     private static ImageView image;
-
+    private static int beDataPosition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.diabetes_quiz);
+        setContentView(R.layout.be_schaetzen);
 
-        quizCompWidget = (QuizCompWidget) findViewById(R.id.quizComp1);
-
+        beCompWidget = (BeCompWidget)findViewById(R.id.beComp1);
         DatabaseHandler db = Login.getDb();
         db.open();
-        Cursor quizData = db.returnQuizData("Deutsch");
-        quizData.moveToFirst();
-        quizDataPosition = quizData.getPosition();
-        quizCompWidget.setQuizFrageText(quizData.getString(0));
-        quizCompWidget.setQuizAntwort1ButtonText(quizData.getString(1));
-        quizCompWidget.setQuizAntwort2ButtonText(quizData.getString(2));
-        quizCompWidget.setQuizAntwort3ButtonText(quizData.getString(3));
-        quizCompWidget.setQuizAntwort4ButtonText(quizData.getString(4));
+        Cursor beData = db.returnBeData("BE");
+        beData.moveToFirst();
+        beDataPosition = beData.getPosition();
+        beCompWidget.setNahrungsmittel(beData.getString(0));
+        beCompWidget.setBeAntwort1ButtonText(beData.getString(1));
+        beCompWidget.setBeAntwort2ButtonText(beData.getString(2));
+        beCompWidget.setBeAntwort3ButtonText(beData.getString(3));
         db.close();
-
         dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog);
@@ -57,6 +56,7 @@ public class DiabetesQuiz extends Activity {
         tittle = (TextView)dialog.findViewById(R.id.dialogTitle);
         image = (ImageView)dialog.findViewById(R.id.dialogImage);
         dialogText = (TextView)dialog.findViewById(R.id.dialogText);
+
     }
 
 
@@ -76,7 +76,7 @@ public class DiabetesQuiz extends Activity {
             return true;
         }
         if (id == R.id.quiz_update) {
-            Log.d("test", "sucsess");
+            Log.d("test","sucsess");
             new AsynchNetwork().execute();
             return true;
         }
@@ -87,47 +87,49 @@ public class DiabetesQuiz extends Activity {
     {
         DatabaseHandler db = Login.getDb();
         db.open();
-        Cursor quizData = db.returnQuizData("Deutsch");
-        quizData.moveToPosition(quizDataPosition);
-        if(quizData.getInt(5)==answer)
+        Cursor beData = db.returnBeData("BE");
+        beData.moveToPosition(beDataPosition);
+        if(beData.getInt(4)==answer)
         {
+            Log.d("Antwort","Correct");
             tittle.setText("Richtig!");
             image.setImageResource(R.drawable.buddysmile);
             dialogText.setText("Du erhälts 10 Bananen");
             Login.bananas = Login.bananas +10;
+            db.updateUserBanana(Login.bananas,Login.user);
         }
         else
         {
+            Log.d("Antwort","Falsch");
             tittle.setText("Falsch!");
             image.setImageResource(R.drawable.buddy_sad);
-            dialogText.setText("Die Richtige Antwort ist: " + quizData.getString(quizData.getInt(5)));
+            dialogText.setText("Die Richtige Antwort ist: " + beData.getString(beData.getInt(4)));
         }
         dialog.show();
         nextQuestion();
         db.close();
+
     }
     private static void nextQuestion()
     {
         DatabaseHandler db = Login.getDb();
         db.open();
-        Cursor quizData = db.returnQuizData("Deutsch");
-        quizData.moveToPosition(quizDataPosition);
-        if(quizData.isLast())
+        Cursor beData = db.returnBeData("BE");
+        beData.moveToPosition(beDataPosition);
+        if(beData.isLast())
         {
-            quizData.moveToFirst();
+            beData.moveToFirst();
         }
         else
         {
-            quizData.moveToNext();
+            beData.moveToNext();
         }
-        quizDataPosition = quizData.getPosition();
-        quizCompWidget.setQuizFrageText(quizData.getString(0));
-        quizCompWidget.setQuizAntwort1ButtonText(quizData.getString(1));
-        quizCompWidget.setQuizAntwort2ButtonText(quizData.getString(2));
-        quizCompWidget.setQuizAntwort3ButtonText(quizData.getString(3));
-        quizCompWidget.setQuizAntwort4ButtonText(quizData.getString(4));
+        beDataPosition = beData.getPosition();
+        beCompWidget.setNahrungsmittel(beData.getString(0));
+        beCompWidget.setBeAntwort1ButtonText(beData.getString(1));
+        beCompWidget.setBeAntwort2ButtonText(beData.getString(2));
+        beCompWidget.setBeAntwort3ButtonText(beData.getString(3));
         db.close();
     }
-
-
 }
+

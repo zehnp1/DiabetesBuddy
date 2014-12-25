@@ -6,10 +6,10 @@
     android:weightSum="1"
     android:background="@drawable/dschungel">
 
-    <com.example.pzehnder.diabetesbuddy.QuizCompWidget
+    <com.example.pzehnder.diabetesbuddy.components.QuizCompWidget
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/quizComp1">
-    </com.example.pzehnder.diabetesbuddy.QuizCompWidget>
+    </com.example.pzehnder.diabetesbuddy.components.QuizCompWidget>
 
 </LinearLayout>

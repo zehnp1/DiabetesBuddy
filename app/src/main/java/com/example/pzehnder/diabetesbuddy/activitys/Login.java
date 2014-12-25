@@ -1,9 +1,9 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.activitys;
 
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,47 +11,55 @@ import android.view.MenuItem;
 import android.widget.*;
 import android.view.View;
 
+import com.example.pzehnder.diabetesbuddy.R;
+import com.example.pzehnder.diabetesbuddy.data.AsynchNetwork;
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
 import com.example.pzehnder.diabetesbuddy.data.InitDbValues;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.IOException;
 
 
 public class Login extends Activity {
 
     private static DatabaseHandler dbHandler;
     public static String user;
+    public static String phonenumber = "";
     public static int bananas = 0;
+    public static boolean login = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        dbHandler = new DatabaseHandler(this);
+        InitDbValues.init(this);
         Button buttonLogin = (Button) findViewById(R.id.homeButton1);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                EditText  userfeld = (EditText)findViewById(R.id.nameFeld);
+                EditText userfeld = (EditText) findViewById(R.id.nameFeld);
+                EditText passwortfeld = (EditText) findViewById(R.id.Passwort);
+                String passwort = passwortfeld.getText().toString();
                 user = userfeld.getText().toString();
+                dbHandler.open();
+                try {
+                    Cursor cursor = dbHandler.returnUserData(user);
+                    cursor.moveToFirst();
 
-                if (isFirstTime()) {
-                    Intent welcomeView = new Intent(Login.this, Welcome.class);
-                    startActivity(welcomeView);
+                    if (passwort.equals(cursor.getString(4)))
+                    {
+                        Log.d("Login",passwort + "="+cursor.getString(4));
+                        phonenumber = cursor.getString(9);
+                        bananas = cursor.getInt(10);
+                        login = true;
+
+                        Intent homeView = new Intent(Login.this, Home.class);
+                        startActivity(homeView);
+
+                    }
+                } catch (Exception e) {
+                    Log.d("Loginerror", e.toString());
                 }
-
-                else{
-                    Intent homeView = new Intent(Login.this, Home.class);
-                    startActivity(homeView);
-                }
-                }
-            });
-
-
+                dbHandler.close();
+            }
+        });
 
         Button buttonReg = (Button) findViewById(R.id.Registrieren);
         buttonReg.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +69,7 @@ public class Login extends Activity {
             }
 
         });
-        dbHandler = new DatabaseHandler(this);
-        InitDbValues.init(this);
+
 
     }
     @Override

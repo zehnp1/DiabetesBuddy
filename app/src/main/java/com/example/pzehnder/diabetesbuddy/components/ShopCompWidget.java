@@ -1,6 +1,5 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.components;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -13,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.pzehnder.diabetesbuddy.activitys.Login;
+import com.example.pzehnder.diabetesbuddy.R;
+import com.example.pzehnder.diabetesbuddy.activitys.Shop;
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
 
 /**
@@ -78,6 +80,7 @@ public class ShopCompWidget extends LinearLayout {
                     shopComp.setVisability(false);
                     Login.bananas = Login.bananas - Integer.parseInt(price);
                     Shop.setBananas(Login.bananas);
+                    db.updateUserBanana(Login.bananas,Login.user);
                 }
                 else
                 {

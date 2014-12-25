@@ -1,4 +1,4 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.activitys;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+
+import com.example.pzehnder.diabetesbuddy.R;
+import com.example.pzehnder.diabetesbuddy.data.AsynchNetwork;
 
 import static com.example.pzehnder.diabetesbuddy.R.*;
 
@@ -21,6 +24,7 @@ public class Home extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.home);
+
 
 
         Button buttonBlutzucker = (Button) findViewById(id.homeButton1);
@@ -55,6 +59,7 @@ public class Home extends Activity {
             public void onClick(View view) {
                 Intent loginView = new Intent(Home.this, Login.class);
                 startActivity(loginView);
+
             }
 
         });

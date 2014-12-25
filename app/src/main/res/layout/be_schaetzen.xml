@@ -6,9 +6,9 @@
     android:background="@drawable/dschungel"
     android:weightSum="1">
 
-   <com.example.pzehnder.diabetesbuddy.BeCompWidget
+   <com.example.pzehnder.diabetesbuddy.components.BeCompWidget
        android:id="@+id/beComp1"
        android:layout_width="match_parent"
        android:layout_height="match_parent">
-   </com.example.pzehnder.diabetesbuddy.BeCompWidget>
+   </com.example.pzehnder.diabetesbuddy.components.BeCompWidget>
 </LinearLayout>

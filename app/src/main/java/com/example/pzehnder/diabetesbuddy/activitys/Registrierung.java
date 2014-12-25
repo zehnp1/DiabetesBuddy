@@ -1,4 +1,4 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.activitys;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,13 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 
+import com.example.pzehnder.diabetesbuddy.R;
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
-
-import java.util.Date;
 
 
 public class Registrierung extends Activity {
@@ -38,14 +36,17 @@ public class Registrierung extends Activity {
             public void onClick(View view) {
                 try
                 {
-                    prepareUserData();
+                   if(saveUserData())
+                   {
+                       Intent homeView = new Intent(Registrierung.this, Home.class);
+                       startActivity(homeView);
+                   }
+
                 }
                 catch (Exception e)
                 {
                     Log.d("Registrierungserror",e.toString());
                 }
-                Intent homeView = new Intent(Registrierung.this, Home.class);
-                startActivity(homeView);
             }
 
         });
@@ -90,8 +91,9 @@ public class Registrierung extends Activity {
         }
     }
 
-    private String[] prepareUserData()
+    private boolean saveUserData()
     {
+        boolean tester = true;
         EditText text = (EditText)findViewById(R.id.nameFeld);
         String name = text.getText().toString();
 
@@ -102,33 +104,57 @@ public class Registrierung extends Activity {
         String mail = text.getText().toString();
 
         text = (EditText)findViewById(R.id.usernameFeld);
+        if(text.getText().length() == 0)
+        {
+            tester = false;
+        }
         String username = text.getText().toString();
 
         text = (EditText)findViewById(R.id.PasswortFeld);
+        if(text.getText().length() == 0)
+        {
+            tester = false;
+        }
         String password = text.getText().toString();
 
-        String passwordTester = text.getText().toString();
         text = (EditText)findViewById(R.id.passwortBestätigen);
-
-        text = (EditText)findViewById(R.id.weight);
-        float weight = Float.parseFloat(text.getText().toString());
+        String passwordTester = text.getText().toString();
+        if(!password.equals(passwordTester))
+        {
+            tester = false;
+        }
+        float weight = 0;
+        try {
+            text = (EditText) findViewById(R.id.weight);
+            weight = Float.parseFloat(text.getText().toString());
+        }
+        catch (Exception e)
+        {
+            Log.d("Registrierung kein gewicht",e.toString());
+        }
 
         text = (EditText)findViewById(R.id.birthday);
         String birthdate = text.getText().toString();
 
+        text = (EditText)findViewById(R.id.telefonFeld);
+        if(text.getText().length() == 0)
+        {
+            tester = false;
+        }
+        String telefon = text.getText().toString();
+
         Spinner spinner = (Spinner)findViewById(R.id.Sprache);
 //        String language =  spinner.getPrompt().toString();
 
-        DatabaseHandler db = Login.getDb();
-        db.open();
-        db.insertUserData(username,name,vorname,mail,password,weight,birthdate,gender);
-
-        Cursor userdata = db.returnUserData(username);
-
-        userdata.moveToFirst();
-        Log.d("registrierung:", userdata.getString(0)+userdata.getString(1));
-        db.close();
-        return null;
+        if(tester) {
+            DatabaseHandler db = Login.getDb();
+            db.open();
+            db.insertUserData(username, name, vorname, mail, password, weight, birthdate, gender, telefon);
+            Login.user = username;
+            Login.phonenumber = telefon;
+            Login.bananas = 0;
+        }
+        return tester;
     }
 
 

@@ -75,8 +75,18 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/telefonFeld"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                android:hint="Telefon Bezugsperson*" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="Benutzername"
+                android:hint="Benutzername*"
                 android:ems="10"
                 android:id="@+id/usernameFeld"
                 android:textStyle="bold"
@@ -89,7 +99,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:id="@+id/PasswortFeld"
-                android:hint="Passwort"
+                android:hint="Passwort*"
                 android:textStyle="bold" />
             <EditText
                 android:layout_width="wrap_content"
@@ -97,7 +107,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:id="@+id/passwortBestätigen"
-                android:hint="Passwort"
+                android:hint="Passwort*"
                 android:textStyle="bold"
                 android:layout_below="@+id/Passwort"/>
             <EditText
@@ -137,7 +147,8 @@
                 <RadioGroup
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:gravity="center">
                 <TextView
                     android:layout_width="121dp"
                     android:layout_height="wrap_content"

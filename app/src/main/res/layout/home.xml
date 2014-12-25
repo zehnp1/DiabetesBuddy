@@ -20,7 +20,7 @@
     <Button
         android:layout_width="280dp"
         android:layout_height="60dp"
-        android:text="Blutzucker und Essen"
+        android:text="Blutzucker Tagebuch"
         android:id="@+id/homeButton1"
         android:background="@drawable/button"
         android:shadowColor="#000000"

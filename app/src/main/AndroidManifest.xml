@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pzehnder.diabetesbuddy" >
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -9,8 +16,13 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
+        <receiver android:name="com.example.pzehnder.diabetesbuddy.data.IncomingSms">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
         <activity
-            android:name=".Login"
+            android:name=".activitys.Login"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,18 +30,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Welcome"/>
-        <activity android:name=".Home"/>
-        <activity android:name=".Shop"/>
-        <activity android:name=".Spiele"/>
-        <activity android:name=".DiabetesQuiz"/>
+        <activity android:name=".activitys.Home"/>
+        <activity android:name=".activitys.Shop"/>
+        <activity android:name=".activitys.Spiele"/>
+        <activity android:name=".activitys.DiabetesQuiz"/>
 
-        <activity android:name=".BESchaetzen"/>
-        <activity android:name=".Registrierung"/>
+        <activity android:name=".activitys.BESchaetzen"/>
+        <activity android:name=".activitys.Registrierung"/>
 
             <activity
                 android:label="@string/app_name"
-                android:name=".BlutzuckerEssen"
+                android:name=".activitys.BlutzuckerEssen"
                 android:theme="@style/AppTheme" >
 
             </activity>

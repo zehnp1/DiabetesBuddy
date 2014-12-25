@@ -15,7 +15,8 @@
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -75,22 +76,22 @@
             android:weightSum="1"
             android:id="@+id/shoplist">
 
-            <com.example.pzehnder.diabetesbuddy.ShopCompWidget
+            <com.example.pzehnder.diabetesbuddy.components.ShopCompWidget
                 android:id="@+id/shopcomp1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            </com.example.pzehnder.diabetesbuddy.ShopCompWidget>
+            </com.example.pzehnder.diabetesbuddy.components.ShopCompWidget>
 
-            <com.example.pzehnder.diabetesbuddy.ShopCompWidget
+            <com.example.pzehnder.diabetesbuddy.components.ShopCompWidget
                 android:id="@+id/shopcomp2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            </com.example.pzehnder.diabetesbuddy.ShopCompWidget>
-            <com.example.pzehnder.diabetesbuddy.ShopCompWidget
+            </com.example.pzehnder.diabetesbuddy.components.ShopCompWidget>
+            <com.example.pzehnder.diabetesbuddy.components.ShopCompWidget
                 android:id="@+id/shopcomp3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            </com.example.pzehnder.diabetesbuddy.ShopCompWidget>
+            </com.example.pzehnder.diabetesbuddy.components.ShopCompWidget>
 
         </LinearLayout>
     </ScrollView>

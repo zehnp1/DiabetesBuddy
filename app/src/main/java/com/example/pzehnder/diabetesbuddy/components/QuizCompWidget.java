@@ -1,16 +1,15 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.components;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
+import com.example.pzehnder.diabetesbuddy.activitys.DiabetesQuiz;
+import com.example.pzehnder.diabetesbuddy.R;
 
 /**
  * Created by Ivan on 29.11.2014.

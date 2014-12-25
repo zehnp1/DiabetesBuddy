@@ -1,26 +1,19 @@
-package com.example.pzehnder.diabetesbuddy;
+package com.example.pzehnder.diabetesbuddy.data;
 
 import android.os.AsyncTask;
 import android.util.JsonReader;
-import android.util.Log;
 
-import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
+import com.example.pzehnder.diabetesbuddy.activitys.Login;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
 
 /**
  * Created by Ivan on 19.12.2014.
