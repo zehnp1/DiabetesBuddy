@@ -12,7 +12,12 @@ import com.example.pzehnder.diabetesbuddy.activitys.BESchaetzen;
 import com.example.pzehnder.diabetesbuddy.R;
 
 /**
- * Created by Ivan on 29.11.2014.
+ * Log:
+ * Erstellt von Ivan Wissler 29.11.2014
+ * Lezte Änderung von Ivan Wissler 26.12.2014
+ *
+ * Beschreibung:
+ * Die Klasse BeCompWidget bildet den benutzerdefinierten Container zum einfügen der BEfragen.
  */
 public class BeCompWidget extends LinearLayout {
 
@@ -34,6 +39,7 @@ public class BeCompWidget extends LinearLayout {
     protected void onFinishInflate()
     {
         super.onFinishInflate();
+        //Dem Component wird das im be_component definierte Layout übertragen
         LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.be_component, this,true);
         setUpViewItems();
@@ -41,6 +47,7 @@ public class BeCompWidget extends LinearLayout {
 
     private void setUpViewItems()
     {
+        //Die Component Elemente für das Bild und die 3 Antwort Buttons werden definiert
         nahrungsmittel = (ImageView)findViewById(R.id.beImage);
 
         beAntwort1Button = (Button) findViewById(R.id.beAntwort1);
@@ -66,19 +73,35 @@ public class BeCompWidget extends LinearLayout {
         });
     }
 
+    /**
+     * SetNahrungsmittel eralubte es dem Container ein neues Bild eins Nahrungsmittels zu übergeben
+     * @param nahrungsmittel
+     */
     public void setNahrungsmittel(String nahrungsmittel) {
         int id = getResources().getIdentifier(nahrungsmittel,"drawable","com.example.pzehnder.diabetesbuddy");
         this.nahrungsmittel.setImageResource(id);
     }
 
+    /**
+     * SetBeAntwort1 erlaubt es dem Container eine neue Antwort 1 zu übergeben
+     * @param beAntwort1
+     */
     public void setBeAntwort1ButtonText (String beAntwort1)
     {
         this.beAntwort1Button.setText(beAntwort1);
     }
+    /**
+     * SetBeAntwort2 erlaubt es dem Container eine neue Antwort 2 zu übergeben
+     * @param beAntwort2
+     */
     public void setBeAntwort2ButtonText (String beAntwort2)
     {
         this.beAntwort2Button.setText(beAntwort2);
     }
+    /**
+     * SetBeAntwort3 erlaubt es dem Container eine neue Antwort 3 zu übergeben
+     * @param beAntwort3
+     */
     public void setBeAntwort3ButtonText (String beAntwort3)
     {
         this.beAntwort3Button.setText(beAntwort3);

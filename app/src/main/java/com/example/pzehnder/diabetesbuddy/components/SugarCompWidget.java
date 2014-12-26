@@ -11,7 +11,12 @@ import android.widget.TextView;
 import com.example.pzehnder.diabetesbuddy.R;
 
 /**
- * Created by Ivan on 19.12.2014.
+ * Log:
+ * Erstellt von Ivan Wissler 19.12.2014
+ * Lezte Änderung von Ivan Wissler 26.12.2014
+ *
+ * Beschreibung:
+ * Die Klasse SgarCompWidget bildet den benutzerdefinierten Container zum einfügen der Blutzuckerwerte.
  */
 public class SugarCompWidget extends LinearLayout{
     private TextView time;
@@ -33,6 +38,7 @@ public class SugarCompWidget extends LinearLayout{
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        //Dem Component wird das im blutzucker_component definierte Layout übertragen
         LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.blutzucker_component, this,true);
         setUpViewItems();
@@ -40,6 +46,9 @@ public class SugarCompWidget extends LinearLayout{
     }
     private void setUpViewItems()
     {
+        //Die Component Elemente für Die Zeit, den Blutzucker, den BEWert,den basalWert, den bolusWert,
+        //eine Notiz und den Hintergrund werden definiert.
+
         time = (TextView)findViewById(R.id.sugarComp_time);
         bz = (TextView)findViewById(R.id.sugarComp_bz);
         be = (TextView)findViewById(R.id.sugarComp_be);
@@ -48,24 +57,54 @@ public class SugarCompWidget extends LinearLayout{
         note = (ImageView)findViewById(R.id.sugarComp_note);
         layout = (LinearLayout)findViewById(R.id.sugarComp);
     }
+
+    /**
+     * setTime erlaubt es die darzustellende Zeit dem Container zu übergenben
+     * @param time
+     */
     public void setTime(String time) {
         this.time.setText(time);
     }
+
+    /**
+     * setBz erlaubt es den Blutzuckerwert dem Container zu übergeben
+     * @param bz
+     */
     public void setBz(String bz)
     {
         this.bz.setText(bz);
     }
+
+    /**
+     * setBe erlaubt es den BrotEinheitwert dem Container zu übergeben
+     * @param be
+     */
     public void setBe(String be){
         this.be.setText(be);
     }
+
+    /**
+     * setBasal erlaubt es den Basalwert dem Container zu übergeben
+     * @param basal
+     */
     public void setBasal(String basal)
     {
         this.basal.setText(basal);
     }
+
+    /**
+     * setBolus erlaubt es den Boluswert dem Cotainer zu übergeben
+     * @param bolus
+     */
     public void setBolus(String bolus)
     {
         this.bolus.setText(bolus);
     }
+
+    /**
+     * setVisibility eralubt es die Sichtbarkeit des Containers zu verändern
+     * @param visibility
+     */
     public void setVisibility(boolean visibility)
     {
         if(visibility)
@@ -78,6 +117,11 @@ public class SugarCompWidget extends LinearLayout{
         }
 
     }
+
+    /**
+     * setBgColr erlaubt es die Hintergrundfarbe des Containers zu verändern
+     * @param color
+     */
     public void setBgColor(String color)
     {
         layout.setBackgroundColor(Color.parseColor(color));

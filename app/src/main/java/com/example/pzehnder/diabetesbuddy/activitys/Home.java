@@ -3,7 +3,6 @@ package com.example.pzehnder.diabetesbuddy.activitys;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +15,15 @@ import com.example.pzehnder.diabetesbuddy.data.AsynchNetwork;
 import static com.example.pzehnder.diabetesbuddy.R.*;
 
 /**
- * Created by michaelheeb on 13.11.14.
+ * Log:
+ * Erstellt von Michael Heeb am 13.11.2014.
+ * Lezte Änderung von Ivan Wissler 26.12.2014
+ *
+ * Beschreibung:
+ * Zur Home Activity gelangt man nach erfolgreichem Einloggen oder Registrieren.
+ * In dieser Activity kann man Auswählen ob man ein Blutzuckertagebuch Eintrag machen will,
+ * ein Spiel Spielen oder im Shop Einkaufen will.
+ *
  */
 public class Home extends Activity {
 
@@ -26,16 +33,17 @@ public class Home extends Activity {
         setContentView(layout.home);
 
 
-
+        //Button Blutzucker leitet einem zur Blutzucker Activity weiter.
         Button buttonBlutzucker = (Button) findViewById(id.homeButton1);
         buttonBlutzucker.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent blutzuckerView = new Intent(Home.this, BlutzuckerEssen.class);
+                Intent blutzuckerView = new Intent(Home.this, Blutzucker.class);
                 startActivity(blutzuckerView);
             }
 
         });
 
+        //Button Spiel leitet einem zur Spielauswahl weiter.
         Button buttonSpiele = (Button) findViewById(id.homeButton2);
         buttonSpiele.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -45,6 +53,7 @@ public class Home extends Activity {
 
         });
 
+        //Button Shop leitet einem zum Shop weiter.
         Button buttonShop = (Button) findViewById(id.homeButton3);
         buttonShop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -54,6 +63,8 @@ public class Home extends Activity {
 
         });
 
+        //Button Logout leitet einem zum Loggin weiter, wobei momentan kein echtes Loggout
+        //gemacht wird und man durch "zurück" wider in die Home Activity gelangen kann.
         Button buttonLogout = (Button) findViewById(id.logoutButton);
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -67,22 +78,21 @@ public class Home extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Erstellt das Menu in der Home Activity
         getMenuInflater().inflate(R.menu.login, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Reagiert auf Menu Eingaben
+
         int id = item.getItemId();
         if (id == R.id.action_profil) {
             return true;
         }
+        // Durch auswahl von Quiz update im Menu werden neue Quizzfragen per Webservice geladen.
         if (id == R.id.quiz_update) {
-            Log.d("test", "sucsess");
             new AsynchNetwork().execute();
             return true;
         }

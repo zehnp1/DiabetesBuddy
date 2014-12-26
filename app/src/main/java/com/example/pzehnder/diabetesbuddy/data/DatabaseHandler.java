@@ -10,20 +10,27 @@ import android.util.Log;
 import java.sql.SQLData;
 
 /**
- * Created by Ivan on 30.11.2014.
+ * Log:
+ * Erstellt von Ivan Wissler 30.11.2014
+ * Lezte Änderung von Ivan Wissler 26.12.2014
+ *
+ * Beschreibung:
+ * Die DatabaseHandler Klasse erlaubt es eine Datenbank zu erstellen und zu laden.
+ * Es werden alle Tabellen definiert und erstellt.
+ * Es werden alle methoden zu verfügung gestellt um einträge aus den Tabellen zu lesen und zu schreiben.
  */
 public class DatabaseHandler
 {
-    //Database
+    //Datenbank Name und Version
     private static final String DATABASE_NAME = "diabetsbuddy_db";
     private static final int DATABASE_VERSION = 1;
 
-    //shop Table
+    //shop Tabelle
     private static final String SHOP_TABLE = "shop";
         private final static String ARTICLE_NAME = "article_name";
         private final static String ARTICLE_PRICE = "price";
 
-    //user Table
+    //user Tabelle
     private static final String USER_TABLE = "user";
         private final static String USER_NAME = "user_name";
         private final static String NAME = "name";
@@ -37,11 +44,11 @@ public class DatabaseHandler
         private final static String BANANAS = "bananas";
         private final static String TELFON ="telefon";
 
-    //userShop Table
+    //userShop Tabelle
     private static final String USER_SHOP_TABLE = "user_shop";
         //Zwischentabelle mit shop.article_name und user.user_name
 
-    //quiz Table
+    //quiz Tabelle
     private static final String QUIZ_TABLE = "quiz";
         private final static String QUIZ_FRAGE = "quiz_frage";
         private final static String QUIZ_ANTWORT1 = "quiz_antwort1";
@@ -51,7 +58,7 @@ public class DatabaseHandler
         private final static String QUIZ_CORRECT = "quiz_correct";
         private final static String QUIZ_LANGUAGE = "quiz_language";
 
-    //be_shätzen Table
+    //be_shätzen Tabelle
     private static final String BE_TABLE = "be";
     private final static String NAHRUNGSMITTEL = "nahrungsmittel";
     private final static String BE_ANTWORT1 = "be_antwort1";
@@ -60,7 +67,7 @@ public class DatabaseHandler
     private final static String BE_CORRECT = "be_correct";
     private final static String BE_EINHEIT = "einheit";
 
-    //Blutzucke Werte
+    //Blutzucke Werte Tabelle
     private static final String BS_VALUES = "bs_values";
     private final static String BS_DATE = "bs_date";
     private final static String BS_TIME = "bs_time";
@@ -88,14 +95,17 @@ public class DatabaseHandler
         }
 
         public void onCreate(SQLiteDatabase db) {
+            //Erstellen der Shop Tabelle
             String crateShopTable = "CREATE TABLE IF NOT EXISTS " + SHOP_TABLE + " ("
                     + ARTICLE_NAME + " TEXT  PRIMARY KEY,"
                     + ARTICLE_PRICE + " INTEGER)";
 
+            //Erstellen der User Shop Tabelle
             String crateUser_ShopTable = "CREATE TABLE IF NOT EXISTS " + USER_SHOP_TABLE + " ("
                     + ARTICLE_NAME + " TEXT,"
                     + USER_NAME + " TEXT, PRIMARY KEY("+ARTICLE_NAME+", "+USER_NAME+"))";
 
+            //Erstellen der User Tabelle
             String crateUserTable = "CREATE TABLE IF NOT EXISTS " + USER_TABLE + " ("
                     + USER_NAME + " TEXT PRIMARY KEY,"
                     + NAME + " TEXT, "
@@ -110,6 +120,7 @@ public class DatabaseHandler
                     + BANANAS + " INTEGER"
                     + ")";
 
+            //Erstellen der Qizz Tabelle
             String crateQuizTable = "CREATE TABLE IF NOT EXISTS " + QUIZ_TABLE + " ("
                     + QUIZ_FRAGE + " TEXT PRIMARY KEY,"
                     + QUIZ_ANTWORT1 + " TEXT, "
@@ -120,6 +131,7 @@ public class DatabaseHandler
                     + QUIZ_LANGUAGE + " TEXT"
                     + ")";
 
+            //Erstellen der BE Tabelle
             String crateBeTable = "CREATE TABLE IF NOT EXISTS " + BE_TABLE + " ("
                     + NAHRUNGSMITTEL + " TEXT PRIMARY KEY,"
                     + BE_ANTWORT1 + " TEXT, "
@@ -129,6 +141,7 @@ public class DatabaseHandler
                     + BE_EINHEIT + " TEXT"
                     + ")";
 
+            //Erstellen der Blutzuckerwerte Tabelle
             String crateBs_valuesTable = "CREATE TABLE IF NOT EXISTS " + BS_VALUES + " ("
                     + BS_DATE + " TEXT,"
                     + BS_TIME + " TEXT,"
@@ -141,6 +154,7 @@ public class DatabaseHandler
 
             try
             {
+                //Ausführen der Create Querys
                 db.execSQL(crateShopTable);
                 db.execSQL(crateUser_ShopTable);
                 db.execSQL(crateUserTable);
@@ -160,15 +174,31 @@ public class DatabaseHandler
             onCreate(db);
         }
     }
+
+    /**
+     * Erlaubt es die Datenbank zu öffnen
+     * @return
+     */
     public DatabaseHandler open()
     {
         db = dbHelper.getWritableDatabase();
         return this;
     }
+
+    /**
+     * schliesst die Datenbank
+     */
     public void close()
     {
         dbHelper.close();
     }
+
+    /**
+     * Erlaubt es werte in die Shop Tabelle zu schreiben
+     * @param name
+     * @param price
+     * @return
+     */
     public long insertShopData(String name, int price)
     {
         ContentValues content = new ContentValues();
@@ -183,6 +213,13 @@ public class DatabaseHandler
             return 0;
         }
     }
+
+    /**
+     * Eralubt es Werte in die User__Shop Tabelle zu schreiben
+     * @param user_name
+     * @param article_name
+     * @return
+     */
     public long insertUser_ShopData(String user_name, String article_name)
     {
         ContentValues content = new ContentValues();
@@ -198,6 +235,17 @@ public class DatabaseHandler
         }
     }
 
+    /**
+     * Erlaubt es Werte in die Quiz Tabelle zu schreiben
+     * @param frage
+     * @param antwort1
+     * @param antwort2
+     * @param antwort3
+     * @param antwort4
+     * @param correct
+     * @param language
+     * @return
+     */
     public long insertQuizData(String frage, String antwort1, String antwort2, String antwort3, String antwort4, int correct, String language)
     {
         ContentValues content = new ContentValues();
@@ -218,6 +266,16 @@ public class DatabaseHandler
         }
     }
 
+    /**
+     * Erlaubt es Werte in die Be Tablle zu schreiben
+     * @param nahrungsmittel
+     * @param antwort1
+     * @param antwort2
+     * @param antwort3
+     * @param correct
+     * @param einheit
+     * @return
+     */
     public long insertBeData(String nahrungsmittel, String antwort1, String antwort2, String antwort3, int correct, String einheit)
     {
         ContentValues content = new ContentValues();
@@ -237,6 +295,19 @@ public class DatabaseHandler
         }
     }
 
+    /**
+     * Erlaubt es Werte in die User Tabelle zu schreiben
+     * @param user_name
+     * @param name
+     * @param vorname
+     * @param mail
+     * @param password
+     * @param weight
+     * @param birthDate
+     * @param gender
+     * @param telefon
+     * @return
+     */
     public long insertUserData(String user_name, String name, String vorname, String mail, String password, Float weight, String birthDate, String gender,String telefon)
     {
         ContentValues content = new ContentValues();
@@ -260,6 +331,12 @@ public class DatabaseHandler
             return 0;
         }
     }
+
+    /**
+     * Erlaubt es die Anzahl der Bananen in der Usertabelle zu verändern
+     * @param bananas
+     * @param user_name
+     */
     public void updateUserBanana(int bananas,String user_name)
     {
         try {
@@ -271,6 +348,19 @@ public class DatabaseHandler
             Log.d("DB update Error",e.toString());
         }
     }
+
+    /**
+     * Erlaubt es Werte in die Blutzuckerwerte Tabelle zu schreiben
+     * @param date
+     * @param time
+     * @param bs_value
+     * @param be_value
+     * @param basal
+     * @param bolus
+     * @param note
+     * @param user
+     * @return
+     */
     public long insertBs_valuesData(String date, String time,Float bs_value, Integer be_value, Integer basal, Integer bolus, String note, String user )
     {
         ContentValues content = new ContentValues();
@@ -291,26 +381,58 @@ public class DatabaseHandler
             return 0;
         }
     }
+
+    /**
+     * Gibt Alle Shop elemente Zurück, mit der Information ob der Angegebene user diese bereits
+     * gekauft hat oder nicht
+     * @param user
+     * @return
+     */
     public Cursor returnShopData(String user)
     {
         final String MY_QUERY = "SELECT * FROM shop LEFT JOIN user_shop ON user_shop.user_name =? AND shop.article_name = user_shop.article_name ";
         return db.rawQuery(MY_QUERY,new String[]{user});
     }
+
+    /**
+     * Gibt alle Informationen aus der User Tabelle zum angegebenen User zurück
+     * @param user
+     * @return
+     */
     public Cursor returnUserData(String user)
     {
         final String MY_QUERY = "SELECT * FROM user WHERE user_name =?";
         return db.rawQuery(MY_QUERY,new String[]{user});
     }
+
+    /**
+     * Gibt alle Quizfragen mit der Angegebenen Sprache zurück
+     * @param language
+     * @return
+     */
     public Cursor returnQuizData(String language)
     {
         final String MY_QUERY = "SELECT * FROM quiz WHERE quiz_language =?";
         return  db.rawQuery(MY_QUERY,new String[]{language});
     }
+
+    /**
+     * Gibt alle BE Fragen mit der Angegebenen einheit zurück
+     * @param einheit
+     * @return
+     */
     public Cursor returnBeData(String einheit)
     {
         final String MY_QUERY = "SELECT * FROM be WHERE einheit =?";
         return  db.rawQuery(MY_QUERY,new String[]{einheit});
     }
+
+    /**
+     * Gibt alle Blutzuckerwerte des Angegebenen Datums und des Angegebenen users zurück
+     * @param date
+     * @param user
+     * @return
+     */
     public Cursor returnBsValuesData(String date, String user)
     {
         final String MY_QUERY = "SELECT * FROM bs_values WHERE bs_date =? AND bs_user =? ORDER BY bs_time DESC";

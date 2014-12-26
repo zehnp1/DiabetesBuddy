@@ -18,6 +18,19 @@ import com.example.pzehnder.diabetesbuddy.R;
 import com.example.pzehnder.diabetesbuddy.data.DatabaseHandler;
 
 
+/**
+ * Log:
+ * Erstellt von Michael Heeb.
+ * Lezte Änderung von Ivan Wissler 26.12.2014
+ *
+ * Beschreibung:
+ * In der Registrierungs Activity kann ein neuer Benutzer Account erstellte werden
+ * Der username muss dabei Eindeutig Sein.
+ *
+ * Username, Passwort, Passwort Bestätigung und Telefonnummer einer Bezugsperson müssen zwingend angegeben werden.
+ * Alle anderen Felder werden momentan nicht ausgewertet, könnten aber bei möglichen Erweiterungen der App interessant sein.
+ *
+ */
 public class Registrierung extends Activity {
     private String gender ="male";
     @Override
@@ -25,19 +38,24 @@ public class Registrierung extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrierung);
 
-
+        //Sprachauswahl wird auf Deutsch, Französisch und Italiensich gesetzt
+        //Sprachauswahl wird momentan nicht ausgewertet, es ist eine nur Deutsche Version.
         Spinner dropdown = (Spinner)findViewById(R.id.Sprache);
         String[] items = new String[]{"Deutsch", "Französisch", "Italienisch"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
         dropdown.setAdapter(adapter);
 
+        //Registrieurngs Button zum Abschliessen der Registrierung
         Button buttonRegAbschluss = (Button) findViewById(R.id.RegistrierungsButton);
         buttonRegAbschluss.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 try
                 {
+
                    if(saveUserData())
                    {
+                       //Insofern alle Pflichtfelder ausgefüllt wurden und in die Datenbank gespeichert
+                       //werden konneten, wird man zur Home activity weitergeleitet.
                        Intent homeView = new Intent(Registrierung.this, Home.class);
                        startActivity(homeView);
                    }
@@ -55,16 +73,14 @@ public class Registrierung extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Erstellt das Menu in der Registrierung Activity
         getMenuInflater().inflate(R.menu.login, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Reagiert auf Eingaben im Menu
         int id = item.getItemId();
         if (id == R.id.action_profil) {
             return true;
@@ -73,19 +89,21 @@ public class Registrierung extends Activity {
     }
 
 
-    public void onRadioButtonClicked(View view) {
+   private void onRadioButtonClicked(View view) {
+       //Überprüft die Radiobuttons auf welches Geschlecht ausgewählt wurde.
+       //Wird momentan nicht weiterverwertet.
         boolean checked = ((RadioButton) view).isChecked();
 
-        // Check which radio button was clicked
+        //Überprüft welcher Radiobutton geklickt wurde
         switch(view.getId()) {
             case R.id.maleCheckBox:
                 if (checked)
-                    // Person is male
+                    // User ist Männlich
                     gender = "male";
                     break;
             case R.id.femaleCheckBox:
                 if (checked)
-                    // Person is female
+                    // User ist Weiblich
                     gender = "female";
                     break;
         }
@@ -93,16 +111,26 @@ public class Registrierung extends Activity {
 
     private boolean saveUserData()
     {
+        //Liest die Eingaben aus dem Registrierungsformular und überprüft ob alle Pflichtfelder
+        //ausgefüllt wurden. Wenn Ja werden die Daten in die Datenbank gespeichert.
+        //Pflichtfelder sind  username, password, passwordTester und telefon.
+
+        //der Tester wird auf false Gesetzt wenn nicht alle nötigen angaben richtig gemacht wurden
         boolean tester = true;
+
+        //Speichert eingaben von Name
         EditText text = (EditText)findViewById(R.id.nameFeld);
         String name = text.getText().toString();
 
+        //Speichert eingaben von Vorname
         text = (EditText)findViewById(R.id.vornameFeld);
         String vorname = text.getText().toString();
 
+        ///Speichet eingaben von Mail
         text = (EditText)findViewById(R.id.eMailFeld);
         String mail = text.getText().toString();
 
+        //Speichert eingaben von Username und überprüft ob das Feld ausgefüllt wurde
         text = (EditText)findViewById(R.id.usernameFeld);
         if(text.getText().length() == 0)
         {
@@ -110,6 +138,7 @@ public class Registrierung extends Activity {
         }
         String username = text.getText().toString();
 
+        //Speichert eingabe von Passwort und überprüft ob das Feld ausgewüllt wurde
         text = (EditText)findViewById(R.id.PasswortFeld);
         if(text.getText().length() == 0)
         {
@@ -117,12 +146,15 @@ public class Registrierung extends Activity {
         }
         String password = text.getText().toString();
 
+        //Speichert eingabe von Passwort Bestäteigen und über Prüft ob das Feld gleich wie Passwort ausgefüllt wurde.
         text = (EditText)findViewById(R.id.passwortBestätigen);
         String passwordTester = text.getText().toString();
         if(!password.equals(passwordTester))
         {
             tester = false;
         }
+
+        //Speichert eingabe zu Gewicht, falls keine eingabe gemacht wurde, wird Gewicht auf 0 gesetzt.
         float weight = 0;
         try {
             text = (EditText) findViewById(R.id.weight);
@@ -133,9 +165,11 @@ public class Registrierung extends Activity {
             Log.d("Registrierung kein gewicht",e.toString());
         }
 
+        //Speichert eingaben zum Geburtsdatumg
         text = (EditText)findViewById(R.id.birthday);
         String birthdate = text.getText().toString();
 
+        //Speichert eingabe zum Telefon der Bezugsperson und überprüft ob das Fedld ausgefüllt wurde
         text = (EditText)findViewById(R.id.telefonFeld);
         if(text.getText().length() == 0)
         {
@@ -144,9 +178,9 @@ public class Registrierung extends Activity {
         String telefon = text.getText().toString();
 
         Spinner spinner = (Spinner)findViewById(R.id.Sprache);
-//        String language =  spinner.getPrompt().toString();
 
         if(tester) {
+            //Wenn alle Pflichtfelder ausgefüllt wurden, werden die Daten in die Datenbank geladen.
             DatabaseHandler db = Login.getDb();
             db.open();
             db.insertUserData(username, name, vorname, mail, password, weight, birthdate, gender, telefon);
